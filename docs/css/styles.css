@@ -54,6 +54,18 @@ nav {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.glass-container > *:not(.event) {
+    margin: 1rem 0;
+}
+
+.event > .explanation > *:first-child {
+    margin-top: 0.5rem;
+}
+
+.event > .explanation > *:last-child {
+    margin-bottom: 0;
+}
+
 .logo {
     font-size: 1.75rem;
     font-weight: 700;
@@ -282,6 +294,31 @@ footer {
         rgba(0, 0, 0, 0.2) 0%,
         rgba(0, 0, 0, 0.7) 100%
     );
+}
+
+.glass-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin: 2rem auto;
+}
+
+.event {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+.event-date-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.event .date {
+  color: #666;
+  margin-right: 1rem;
 }
 
 .text-container {
