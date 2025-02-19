@@ -1,25 +1,89 @@
-// main.js
+function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = savedTheme || (systemDark ? 'dark' : 'light');
+    
+    document.body.setAttribute('data-theme', initialTheme);
+    document.querySelector('.theme-toggle').textContent = 
+        initialTheme === 'dark' ? '🌙' : '☀️';
+    document.documentElement.style.transition = 'all 0.3s ease';
+}
 
-// Array of dynamic introduction texts for the homepage
-const introTexts = [
-  "Explorez l'univers de la physique autrement.",
-  "Chaque visite est une redécouverte.",
-  "La science vous ouvre ses portes."
+document.querySelector('.theme-toggle').addEventListener('click', () => {
+    document.documentElement.style.transition = 'none';
+    requestAnimationFrame(() => {
+        document.documentElement.style.transition = 'all 0.3s ease';
+    });
+    const body = document.body;
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    document.querySelector('.theme-toggle').textContent = 
+        newTheme === 'dark' ? '🌙' : '☀️';
+});
+
+const greetings = [
+    "Explorez l'univers avec nous",
+    "Découvrez la physique autrement",
+    "La science à portée de main"
 ];
 
-// Set dynamic introduction text on page load
-document.addEventListener("DOMContentLoaded", function () {
-  const introElement = document.getElementById("intro-text");
-  if (introElement) {
-    const randomText = introTexts[Math.floor(Math.random() * introTexts.length)];
-    introElement.textContent = randomText;
-  }
+document.querySelector('.dynamic-text').textContent = 
+    greetings[Math.floor(Math.random() * greetings.length)];
+
+// Initialize theme when page loads
+initializeTheme();
+
+// Mobile menu
+document.querySelector('.hamburger').addEventListener('click', (e) => {
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (navLinks.classList.contains('active')) {
+        navLinks.classList.add('closing');
+        navLinks.addEventListener('animationend', () => {
+            navLinks.classList.remove('active', 'closing');
+        }, { once: true });
+    } else {
+        navLinks.classList.add('active');
+    }
 });
 
-// Theme toggle functionality
-const themeToggle = document.getElementById("theme-toggle");
-themeToggle.addEventListener("click", function () {
-  document.body.classList.toggle("dark-theme");
-  document.body.classList.toggle("light-theme");
+document.addEventListener('click', (e) => {
+    const navLinks = document.querySelector('.nav-links');
+    if (!e.target.closest('.nav-links') && !e.target.closest('.hamburger')) {
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.add('closing');
+            navLinks.addEventListener('animationend', () => {
+                navLinks.classList.remove('active', 'closing');
+            }, {once: true});
+        }
+    }
 });
 
+// Close menu when clicking outside or on links
+document.addEventListener('click', (e) => {
+    const navLinks = document.querySelector('.nav-links');
+    if (!e.target.closest('.nav-links') && !e.target.closest('.hamburger')) {
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.add('closing');
+            navLinks.addEventListener('animationend', () => {
+                navLinks.classList.remove('active', 'closing');
+            }, { once: true });
+        }
+    }
+});
+
+// Close menu when clicking links
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        const navLinks = document.querySelector('.nav-links');
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.add('closing');
+            navLinks.addEventListener('animationend', () => {
+                navLinks.classList.remove('active', 'closing');
+            }, { once: true });
+        }
+    });
+});

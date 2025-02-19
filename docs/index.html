@@ -1,60 +1,57 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <base href="/" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CurieOsity - Accueil</title>
-  <!-- SEO & Social Meta Tags -->
-  <meta name="description" content="CurieOsity - Association des étudiants en physique à la Sorbonne">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CurieOsity - Association de Physique</title>
+    <meta name="description" content="Association de physique de l'Université Sorbonne - Événements, projets et communauté étudiante">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add Showdown library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="dark-theme">
-  <header>
-    <!-- Logo and site name -->
-    <img src="assets/images/logo.png" alt="CurieOsity Logo" id="logo"> <!-- Replace with actual logo -->
-    <h1>CurieOsity</h1>
-    <!-- Navigation Menu -->
-    <nav>
-      <ul>
-        <li><a href="/">Accueil</a></li>
-        <li><a href="projects">Nos Projets</a></li>
-        <li><a href="store">Boutique</a></li>
-        <li><a href="about">À Propos</a></li>
-        <li><a href="news">Actualités</a></li>
-        <li><a href="contacts">Contacts</a></li>
-      </ul>
-    </nav>
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle">Toggle Light/Dark</button>
-  </header>
+<body data-theme="dark">
+    <header>
+	<div class="theme-toggle" aria-label="Toggle theme">🌓</div>
+        <nav>
+            <a href="/" class="logo">CurieOsity</a>
+            <div class="nav-links">
+                <a href="/">Accueil</a>
+                <a href="/projects">Projets</a>
+                <a href="/store">Boutique</a>
+                <a href="/about">À propos</a>
+                <a href="/news">Actualités</a>
+                <a href="/contacts">Contact</a>
+            </div>
+            <button class="hamburger">☰</button>
+        </nav>
+    </header>
 
-  <main>
-    <!-- Introduction Section with dynamic content -->
-    <section id="intro">
-      <h2>Bienvenue sur CurieOsity</h2>
-      <p id="intro-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </section>
-    <!-- Hot News Section (content loaded from markdown) -->
-    <section id="hot-news">
-      <!-- Content will be injected by js/newsLoader.js -->
-      <h2>Hot News</h2>
-      <div id="news-content">
-        <!-- Markdown content will appear here -->
-      </div>
-    </section>
-  </main>
+    <main>
+        <section class="hero">
+            <h1 class="dynamic-text">Bienvenue chez CurieOsity</h1>
+            <div class="dynamic-image"></div>
+        </section>
 
-  <footer>
-    <!-- Social Media Icons / Links -->
-    <a href="https://instagram.com/yourhandle" target="_blank">Instagram</a>
-    <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
-    <a href="https://wa.me/yourphonenumber" target="_blank">WhatsApp</a>
-    <!-- Other links as needed -->
-  </footer>
+        <section class="hot-news">
+            <h2>Dernières nouvelles</h2>
+            <div id="news-container"></div>
+        </section>
+    </main>
 
-  <!-- JS Scripts -->
-  <script src="js/main.js"></script>
-  <script src="js/newsLoader.js"></script>
+    <footer>
+        <div class="social-links">
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://discord.com" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="mailto:contact@curieosity.fr"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>© 2023 CurieOsity - Tous droits réservés</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/newsLoader.js"></script>
 </body>
 </html>
