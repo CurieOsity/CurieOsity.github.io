@@ -1,5 +1,5 @@
 // Update path and add error handling
-fetch('/data/hot-news.md')
+fetch('/data/news.md')
     .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.text();

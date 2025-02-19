@@ -85,13 +85,12 @@ const backgroundImages = [
     'image3.jpg',
     'image4.jpg'
 ];
-
 function setRandomBackground() {
-    const bgElement = document.getElementById('dynamic-background');
+    const hero = document.querySelector('.hero');
     const randomImage = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
     const timestamp = new Date().getTime(); // Cache buster
-
-    bgElement.style.backgroundImage = `url(/images/${randomImage}?t=${timestamp})`;
+    
+    hero.style.backgroundImage = `url(/images/${randomImage}?t=${timestamp})`;
 }
 
 // Call the function when page loads
