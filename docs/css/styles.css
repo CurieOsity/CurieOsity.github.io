@@ -1,0 +1,117 @@
+/* Reset some basic elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Replace with your chosen font */
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Theme (default) */
+body.dark-theme {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+/* Light Theme */
+body.light-theme {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* Header styling */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: inherit;
+}
+
+header img#logo {
+  width: 80px; /* Adjust as needed */
+}
+
+header h1 {
+  margin: 0.5rem 0;
+}
+
+/* Navigation Menu */
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+}
+
+/* Main content styling */
+main {
+  padding: 2rem;
+}
+
+/* Section styling */
+section {
+  margin-bottom: 3rem;
+}
+
+/* Gallery styles for projects page */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.gallery img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+/* Footer styling */
+footer {
+  padding: 1rem;
+  text-align: center;
+  background-color: inherit;
+  border-top: 1px solid currentColor;
+}
+
+footer a {
+  margin: 0 0.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+  nav ul li {
+    margin: 0.5rem 0;
+  }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CurieOsity - Accueil</title>
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="CurieOsity - Association des étudiants en physique à la Sorbonne">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dark-theme">
+  <header>
+    <!-- Logo and site name -->
+    <img src="assets/images/logo.png" alt="CurieOsity Logo" id="logo"> <!-- Replace with actual logo -->
+    <h1>CurieOsity</h1>
+    <!-- Navigation Menu -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="projects.html">Nos Projets</a></li>
+        <li><a href="store.html">Boutique</a></li>
+        <li><a href="about.html">À Propos</a></li>
+        <li><a href="news.html">Actualités</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+      </ul>
+    </nav>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle">Toggle Light/Dark</button>
+  </header>
+
+  <main>
+    <!-- Introduction Section with dynamic content -->
+    <section id="intro">
+      <h2>Bienvenue sur CurieOsity</h2>
+      <p id="intro-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </section>
+    <!-- Hot News Section (content loaded from markdown) -->
+    <section id="hot-news">
+      <!-- Content will be injected by js/newsLoader.js -->
+      <h2>Hot News</h2>
+      <div id="news-content">
+        <!-- Markdown content will appear here -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <!-- Social Media Icons / Links -->
+    <a href="https://instagram.com/yourhandle" target="_blank">Instagram</a>
+    <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
+    <a href="https://wa.me/yourphonenumber" target="_blank">WhatsApp</a>
+    <!-- Other links as needed -->
+  </footer>
+
+  <!-- JS Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/newsLoader.js"></script>
+</body>
+</html>
