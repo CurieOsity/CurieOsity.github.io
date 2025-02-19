@@ -1,4 +1,4 @@
-Welcome to our news section!
+# Welcome to our news section!
 
 ### 2023-10-05 Product Launch
 We're excited to announce our new product. Check it out in the [store](/store)!
@@ -7,4 +7,4 @@ We're excited to announce our new product. Check it out in the [store](/store)!
 - Added new features
 - Improved performance
 
-Thanks for following our updates!
+# Thanks for following our updates!
