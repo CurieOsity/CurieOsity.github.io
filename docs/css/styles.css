@@ -195,6 +195,17 @@ footer {
     100% { background-position: 0% 50%; }
 }
 
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
 /* Responsive updates */
 @media (max-width: 768px) {
     .nav-links {
@@ -208,30 +219,33 @@ footer {
         backdrop-filter: blur(10px);
         flex-direction: column;
         padding: 0.5rem 5%;
-        max-height: 70vh; /* Limit height */
-        overflow-y: auto; /* Add scroll if needed */
+        max-height: 70vh;
+        overflow-y: auto;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .nav-links a {
-        padding: 0.75rem; /* Reduce padding */
+        padding: 0.75rem
         font-size: 0.9rem;
     }
 
     .nav-links::before {
-        content: '×';
+        /*content: '';*/
         position: absolute;
         top: 1rem;
         right: 1rem;
         font-size: 1.5rem;
         cursor: pointer;
     }
-    
+
     .hamburger {
+        display: block;
         position: relative;
         z-index: 1002;
         right: 5%;
+        margin-left: auto;
     }
+ 
     
     .nav-links {
         display: none;
@@ -263,12 +277,6 @@ footer {
     #news-container {
         grid-template-columns: repeat(2, 1fr);
     }
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
 }
 
 .nav-links a {
@@ -307,17 +315,6 @@ footer {
 
 .nav-links a:hover::after {
     width: 100%;
-}
-
-.hamburger {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--text);
-    font-size: 1.25rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 1001;
 }
 
 @keyframes slideDown {

@@ -50,17 +50,6 @@ document.querySelector('.hamburger').addEventListener('click', (e) => {
     }
 });
 
-document.addEventListener('click', (e) => {
-    const navLinks = document.querySelector('.nav-links');
-    if (!e.target.closest('.nav-links') && !e.target.closest('.hamburger')) {
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.add('closing');
-            navLinks.addEventListener('animationend', () => {
-                navLinks.classList.remove('active', 'closing');
-            }, {once: true});
-        }
-    }
-});
 
 // Close menu when clicking outside or on links
 document.addEventListener('click', (e) => {
