@@ -96,6 +96,9 @@ nav {
     position: relative;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .dynamic-image::after {
@@ -269,7 +272,6 @@ footer {
     .dynamic-text {
         font-size: 4.5rem;
     }
-    
     .dynamic-image {
         height: 500px;
     }

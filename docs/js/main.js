@@ -76,3 +76,23 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         }
     });
 });
+
+
+// Random background images
+const backgroundImages = [
+    'image1.jpg',
+    'image2.jpg',
+    'image3.jpg',
+    'image4.jpg'
+];
+
+function setRandomBackground() {
+    const bgElement = document.getElementById('dynamic-background');
+    const randomImage = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
+    const timestamp = new Date().getTime(); // Cache buster
+
+    bgElement.style.backgroundImage = `url(/images/${randomImage}?t=${timestamp})`;
+}
+
+// Call the function when page loads
+window.addEventListener('load', setRandomBackground);
