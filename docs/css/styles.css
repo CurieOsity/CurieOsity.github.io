@@ -268,7 +268,53 @@ footer {
     }
 }
 
+/* Hero section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Dark overlay with vignette effect */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+}
+
+/* Text container with glass effect */
+.text-container {
+    position: relative;
+    z-index: 2;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    padding: 2rem 3rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+
 @media (min-width: 768px) {
+    .text-container {
+        padding: 3rem 5rem;
+        max-width: 70%;
+    }
     .dynamic-text {
         font-size: 4.5rem;
     }
