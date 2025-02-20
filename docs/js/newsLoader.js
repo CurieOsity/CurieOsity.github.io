@@ -8,8 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => {
             if (!response.ok) throw new Error('File not found');
             return response.text();
-        })
+	})
         .then(md => {
+            if (!md || md.trim().length === 0) throw new Error('Empty file');
             const parsedHtml = marked.parse(md);
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = parsedHtml;
