@@ -1,14 +1,17 @@
+// Global variables
+const path_includes = "/assets/includes"
+
 // Load header and footer with Promise-based approach
 const loadComponents = {
   header: () => 
-    fetch('/includes/header.html')
+    fetch(`${path_includes}/header.html`)
       .then(response => response.text())
       .then(data => {
         document.getElementById('header').outerHTML = data;
       }),
 
   footer: () =>
-    fetch('/includes/footer.html')
+    fetch(`${path_includes}/footer.html`)
       .then(response => response.text())
       .then(data => {
         document.getElementById('footer').outerHTML = data;

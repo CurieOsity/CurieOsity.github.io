@@ -1,3 +1,6 @@
+// Global variables
+const path_bg = "/assets/bg-images"
+
 // Theme Manager
 const ThemeManager = {
   init() {
@@ -96,7 +99,7 @@ const DynamicContent = {
     const randomImage = this.backgroundImages[
       Math.floor(Math.random() * this.backgroundImages.length)
     ];
-    hero.style.backgroundImage = `url(/images/${randomImage}?t=${Date.now()})`;
+    hero.style.backgroundImage = `url(${path_bg}/${randomImage}?t=${Date.now()})`;
   }
 };
 
@@ -116,4 +119,5 @@ document.addEventListener('DOMContentLoaded', () => {
       ThemeManager.toggle();
     });
   });
-});
+})
+

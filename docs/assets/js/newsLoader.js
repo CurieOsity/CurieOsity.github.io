@@ -1,3 +1,7 @@
+// Global variables:
+const path_news = "/assets/data/news.md"
+
+// Code
 class NewsSlider {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
@@ -19,7 +23,7 @@ class NewsSlider {
   }
 
   async fetchNewsContent() {
-    const response = await fetch('data/news.md');
+    const response = await fetch(path_news);
     if (!response.ok) throw new Error('News file not found');
     const content = await response.text();
     if (!content.trim()) throw new Error('Empty news file');
