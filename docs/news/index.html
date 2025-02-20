@@ -1,47 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <base href="/" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CurieOsity - Actualités</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CurieOsity - Association des étudiants en physique de Sorbonne Université</title>
+    <meta name="description" content="Association des étudiants en physique de Sorbonne Université - Vie étudiante, événements, projets et conférences">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
-<body class="dark-theme">
-  <header>
-    <img src="assets/images/logo.png" alt="CurieOsity Logo" id="logo">
-    <h1>CurieOsity</h1>
-    <nav>
-      <ul>
-        <li><a href="\">Accueil</a></li>
-        <li><a href="projects">Nos Projets</a></li>
-        <li><a href="store">Boutique</a></li>
-        <li><a href="about">À Propos</a></li>
-        <li><a href="news">Actualités</a></li>
-        <li><a href="contacts">Contacts</a></li>
-      </ul>
-    </nav>
-    <button id="theme-toggle">Toggle Light/Dark</button>
-  </header>
+<body data-theme="dark">
 
-  <main>
-    <section id="news">
-      <h2>Actualités</h2>
-      <!-- Hot news content loaded from markdown -->
-      <div id="news-content">
-        <!-- Markdown content will appear here -->
-      </div>
-    </section>
-  </main>
+    <div id="header"></div>
 
-  <footer>
-    <a href="https://instagram.com/yourhandle" target="_blank">Instagram</a>
-    <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
-    <a href="https://wa.me/yourphonenumber" target="_blank">WhatsApp</a>
-  </footer>
+    <main>
+        <section class="hero">
+            <h1 class="dynamic-text">Bienvenue chez CurieOsity</h1>
+            <div id="news-container"></div>
+	      </section>
+    </main>
 
-  <script src="js/main.js"></script>
-  <script src="js/newsLoader.js"></script>
+    <div id="footer"></div>
+
+    <script src="js/head-foot.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/newsLoader.js" defer></script>
 </body>
 </html>
-
