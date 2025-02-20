@@ -126,6 +126,7 @@ nav {
 
 /* Hero Section */
 .hero {
+  padding-top: 70px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -402,9 +403,10 @@ footer {
   /* Restore hamburger on mobile */
   .hamburger {
     display: block;
-    position: relative;
+    position: fixed;
+    top: 1.5rem;
     z-index: 1002;
-    right: 5%;
+    right: calc(5% + 5px);
     margin-left: auto;
   }
 }

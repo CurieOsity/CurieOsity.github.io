@@ -1,97 +1,119 @@
-function initializeTheme() {
+// Theme Manager
+const ThemeManager = {
+  init() {
     const savedTheme = localStorage.getItem('theme');
     const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initialTheme = savedTheme || (systemDark ? 'dark' : 'light');
     
-    document.body.setAttribute('data-theme', initialTheme);
-    document.querySelector('.theme-toggle').textContent = 
-        initialTheme === 'dark' ? '🌙' : '☀️';
+    this.applyTheme(initialTheme);
     document.documentElement.style.transition = 'all 0.3s ease';
-}
+  },
 
-document.querySelector('.theme-toggle').addEventListener('click', () => {
-    document.documentElement.style.transition = 'none';
-    requestAnimationFrame(() => {
-        document.documentElement.style.transition = 'all 0.3s ease';
-    });
-    const body = document.body;
-    const currentTheme = body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    body.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+  applyTheme(theme) {
+    document.body.setAttribute('data-theme', theme);
     document.querySelector('.theme-toggle').textContent = 
-        newTheme === 'dark' ? '🌙' : '☀️';
-});
+      theme === 'dark' ? '🌙' : '☀️';
+    localStorage.setItem('theme', theme);
+  },
 
-const greetings = [
+  toggle() {
+    const currentTheme = document.body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    this.applyTheme(newTheme);
+  }
+};
+
+// Mobile Menu Manager
+const MobileMenu = {
+  init() {
+    this.registerEventListeners();
+  },
+
+  registerEventListeners() {
+    document.querySelector('.hamburger').addEventListener('click', () => 
+      this.toggleMenu()
+    );
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-links') && !e.target.closest('.hamburger')) {
+        this.closeMenu();
+      }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => 
+      link.addEventListener('click', () => this.closeMenu())
+    );
+  },
+
+  toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.contains('active') ? this.closeMenu() : this.openMenu();
+  },
+
+  openMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.add('active');
+  },
+
+  closeMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    if (!navLinks.classList.contains('active')) return;
+
+    navLinks.classList.add('closing');
+    navLinks.addEventListener('animationend', () => {
+      navLinks.classList.remove('active', 'closing');
+    }, { once: true });
+  }
+};
+
+// Dynamic Content Manager
+const DynamicContent = {
+  greetings: [
     "Explorez l'univers avec nous",
     "Découvrez la physique autrement",
     "La science à portée de main"
-];
+  ],
 
-document.querySelector('.dynamic-text').textContent = 
-    greetings[Math.floor(Math.random() * greetings.length)];
-
-// Initialize theme when page loads
-initializeTheme();
-
-// Mobile menu
-document.querySelector('.hamburger').addEventListener('click', (e) => {
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (navLinks.classList.contains('active')) {
-        navLinks.classList.add('closing');
-        navLinks.addEventListener('animationend', () => {
-            navLinks.classList.remove('active', 'closing');
-        }, { once: true });
-    } else {
-        navLinks.classList.add('active');
-    }
-});
-
-
-// Close menu when clicking outside or on links
-document.addEventListener('click', (e) => {
-    const navLinks = document.querySelector('.nav-links');
-    if (!e.target.closest('.nav-links') && !e.target.closest('.hamburger')) {
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.add('closing');
-            navLinks.addEventListener('animationend', () => {
-                navLinks.classList.remove('active', 'closing');
-            }, { once: true });
-        }
-    }
-});
-
-// Close menu when clicking links
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        const navLinks = document.querySelector('.nav-links');
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.add('closing');
-            navLinks.addEventListener('animationend', () => {
-                navLinks.classList.remove('active', 'closing');
-            }, { once: true });
-        }
-    });
-});
-
-
-// Random background images
-const backgroundImages = [
+  backgroundImages: [
     'image1.jpg',
     'image2.jpg',
     'image3.jpg',
     'image4.jpg'
-];
-function setRandomBackground() {
-    const hero = document.querySelector('.hero');
-    const randomImage = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
-    const timestamp = new Date().getTime(); // Cache buster
-    
-    hero.style.backgroundImage = `url(/images/${randomImage}?t=${timestamp})`;
-}
+  ],
 
-// Call the function when page loads
-window.addEventListener('load', setRandomBackground);
+  init() {
+    this.setRandomGreeting();
+    this.setRandomBackground();
+  },
+
+  setRandomGreeting() {
+    const randomIndex = Math.floor(Math.random() * this.greetings.length);
+    document.querySelector('.dynamic-text').textContent = this.greetings[randomIndex];
+  },
+
+  setRandomBackground() {
+    const hero = document.querySelector('.hero');
+    const randomImage = this.backgroundImages[
+      Math.floor(Math.random() * this.backgroundImages.length)
+    ];
+    hero.style.backgroundImage = `url(/images/${randomImage}?t=${Date.now()})`;
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  window.componentsLoaded.then(() => {
+    // Now safe to initialize components
+    ThemeManager.init();
+    MobileMenu.init();
+    DynamicContent.init();
+
+    // Theme toggle event
+    document.querySelector('.theme-toggle').addEventListener('click', () => {
+      document.documentElement.style.transition = 'none';
+      requestAnimationFrame(() => {
+        document.documentElement.style.transition = 'all 0.3s ease';
+      });
+      ThemeManager.toggle();
+    });
+  });
+});

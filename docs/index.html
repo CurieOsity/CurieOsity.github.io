@@ -12,21 +12,8 @@
     <base href="/" />
 </head>
 <body data-theme="dark">
-    <header>
-	<div class="theme-toggle" aria-label="Toggle theme">🌓</div>
-        <nav>
-            <a href="/" class="logo">CurieOsity</a>
-            <div class="nav-links">
-                <a href="/">Accueil</a>
-                <a href="/projects">Projets</a>
-                <a href="/store">Boutique</a>
-                <a href="/about">À propos</a>
-                <a href="/news">Actualités</a>
-                <a href="/contacts">Contact</a>
-            </div>
-            <button class="hamburger">☰</button>
-        </nav>
-    </header>
+
+    <div id="header"></div>
 
     <main>
         <section class="hero">
@@ -35,16 +22,10 @@
 	</section>
     </main>
 
-    <footer>
-        <div class="social-links">
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://discord.com" target="_blank"><i class="fab fa-discord"></i></a>
-            <a href="mailto:contact@curieosity.fr"><i class="fas fa-envelope"></i></a>
-        </div>
-        <p>© 2025 CurieOsity - Tous droits réservés</p>
-    </footer>
+    <div id="footer"></div>
 
-    <script src="js/main.js"></script>
-    <script src="js/newsLoader.js"></script>
+    <script src="js/head-foot.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/newsLoader.js" defer></script>
 </body>
 </html>
