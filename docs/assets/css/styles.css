@@ -3,7 +3,7 @@
   --bg-dark: #0a0a0a;
   --text-dark: #ffffff;
   --bg-light: #f8f9fa;
-  --text-light: #2d3436;
+  --text-light: #000000;
   --accent: #6c5ce7;
   --gradient: linear-gradient(135deg, #6c5ce7 0%, #a66efa 100%);
   --glass-dark: rgba(0, 0, 0, 0.3);
@@ -64,6 +64,12 @@ nav {
   background-clip: text;
   color: transparent;
 }
+.logo img {
+  margin-top: -2rem;
+  margin-bottom: -2rem;
+  height: 5.25rem;
+}
+
 .nav-links a {
   color: var(--text);
   text-decoration: none;
@@ -215,7 +221,7 @@ nav {
   border-radius: 20px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
