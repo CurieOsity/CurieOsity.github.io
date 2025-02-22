@@ -77,12 +77,7 @@ const DynamicContent = {
     "La science à portée de main"
   ],
 
-  backgroundImages: [
-    'image1.jpg',
-    'image2.jpg',
-    'image3.jpg',
-    'image4.jpg'
-  ],
+  backgroundImages: [],
 
   init() {
     this.setRandomGreeting();
@@ -93,13 +88,45 @@ const DynamicContent = {
     const randomIndex = Math.floor(Math.random() * this.greetings.length);
     document.querySelector('.dynamic-text').textContent = this.greetings[randomIndex];
   },
-
   setRandomBackground() {
-    const hero = document.querySelector('.hero');
-    const randomImage = this.backgroundImages[
+    const mediaContainer = document.querySelector('.background-media');
+    mediaContainer.innerHTML = '';
+  
+    if (this.backgroundImages.length === 0) return;
+    const randomMedia = this.backgroundImages[
       Math.floor(Math.random() * this.backgroundImages.length)
     ];
-    hero.style.backgroundImage = `url(${path_bg}/${randomImage}?t=${Date.now()})`;
+  
+    // Create media element
+    let mediaElement;
+    if (randomMedia.type === 'video') {
+      const video = document.createElement('video');
+      video.autoplay = true;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      
+      const source = document.createElement('source');
+      source.src = `${path_bg}/${randomMedia.name}`;
+      source.type = `video/${randomMedia.extension}`;
+      
+      video.appendChild(source);
+      mediaElement = video;
+    } else {
+      const img = document.createElement('img');
+      img.src = `${path_bg}/${randomMedia.name}`;
+      img.alt = '';
+      mediaElement = img;
+    }
+  
+    // Add media to container
+    mediaContainer.appendChild(mediaElement);
+  
+    // Create credit element
+    const credit = document.createElement('div');
+    credit.className = 'media-credit';
+    credit.innerHTML = `Crédit: <a href="${randomMedia['source-url']}" target="_blank" rel="noopener">${randomMedia.source}</a>`;
+    mediaContainer.appendChild(credit);
   }
 };
 
@@ -108,7 +135,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Now safe to initialize components
     ThemeManager.init();
     MobileMenu.init();
-    DynamicContent.init();
+    // Fetch the JSON file and initialize DynamicContent once data is ready
+    fetch(`${path_bg}/bg-images.json`)
+      .then(response => response.json())
+      .then(data => {
+        bg_images = data.images;
+        DynamicContent.backgroundImages = bg_images;
+        DynamicContent.init();
+      })
+      .catch(error => console.error('Error loading images:', error));
 
     // Theme toggle event
     document.querySelector('.theme-toggle').addEventListener('click', () => {
@@ -120,4 +155,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 })
-
