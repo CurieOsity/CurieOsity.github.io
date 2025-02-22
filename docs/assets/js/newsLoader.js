@@ -59,7 +59,7 @@ class NewsSlider {
     card.className = 'news-card';
     card.innerHTML = `
       <div class="event-date-title">
-        <h4>${match[1]}<h4>
+        <h4 class="date">${match[1]}<h4>
         <h3>${match[2]}</h3>
       </div>
       <div class="event-content"></div>

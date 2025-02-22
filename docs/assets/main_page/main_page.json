@@ -1,5 +1,13 @@
 {
-  "images": [
+  "greetings": [
+    "CurieOsity",
+    "L'association des étudiant(e)s en physiques de Sorbonne Université",
+    "Une asso pour les gouverner tous",
+    "Lutrinae sapiens",
+    "Bienvenue sur le site web de CurieOsity",
+    "Fondée en 2014"
+  ],
+  "backgrounds": [
     {
       "type": "image",
       "name": "heic0609a.jpg",

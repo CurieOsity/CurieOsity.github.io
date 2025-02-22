@@ -1,5 +1,6 @@
 // Global variables
-const path_bg = "/assets/bg-images"
+const path_logo = "/assets/CurieO"
+const path_main = "/assets/main_page"
 
 // Theme Manager
 const ThemeManager = {
@@ -16,7 +17,7 @@ const ThemeManager = {
     document.body.setAttribute('data-theme', theme);
     document.querySelector('.theme-toggle').textContent = 
       theme === 'dark' ? '🌙' : '☀️';
-    document.querySelector('.logo img').src = `/assets/CurieO/Logo_full_${theme}.svg`;
+    document.querySelector('.logo img').src = `${path_logo}/Logo_full_${theme}.svg`;
     localStorage.setItem('theme', theme);
   },
 
@@ -72,13 +73,8 @@ const MobileMenu = {
 
 // Dynamic Content Manager
 const DynamicContent = {
-  greetings: [
-    "Explorez l'univers avec nous",
-    "Découvrez la physique autrement",
-    "La science à portée de main"
-  ],
-
-  backgroundImages: [],
+  greetings: [],
+  backgrounds: [],
 
   init() {
     this.setRandomGreeting();
@@ -93,9 +89,9 @@ const DynamicContent = {
     const mediaContainer = document.querySelector('.background-media');
     mediaContainer.innerHTML = '';
   
-    if (this.backgroundImages.length === 0) return;
-    const randomMedia = this.backgroundImages[
-      Math.floor(Math.random() * this.backgroundImages.length)
+    if (this.backgrounds.length === 0) return;
+    const randomMedia = this.backgrounds[
+      Math.floor(Math.random() * this.backgrounds.length)
     ];
   
     // Create media element
@@ -108,14 +104,14 @@ const DynamicContent = {
       video.playsInline = true;
       
       const source = document.createElement('source');
-      source.src = `${path_bg}/${randomMedia.name}`;
+      source.src = `${path_main}/${randomMedia.name}`;
       source.type = `video/${randomMedia.extension}`;
       
       video.appendChild(source);
       mediaElement = video;
     } else {
       const img = document.createElement('img');
-      img.src = `${path_bg}/${randomMedia.name}`;
+      img.src = `${path_main}/${randomMedia.name}`;
       img.alt = '';
       mediaElement = img;
     }
@@ -137,11 +133,11 @@ document.addEventListener('DOMContentLoaded', () => {
     ThemeManager.init();
     MobileMenu.init();
     // Fetch the JSON file and initialize DynamicContent once data is ready
-    fetch(`${path_bg}/bg-images.json`)
+    fetch(`${path_main}/main_page.json`)
       .then(response => response.json())
       .then(data => {
-        bg_images = data.images;
-        DynamicContent.backgroundImages = bg_images;
+        DynamicContent.backgrounds = data.backgrounds;
+        DynamicContent.greetings = data.greetings;
         DynamicContent.init();
       })
       .catch(error => console.error('Error loading images:', error));
