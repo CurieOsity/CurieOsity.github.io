@@ -1,5 +1,6 @@
 /* Variables */
 :root {
+  --header-height: 5.5rem;
   --bg-dark: rgba(10, 10, 10, 1);
   --bg-light: rgba(245, 245, 245, 1);
   --text-dark: rgba(255, 255, 255, 1);

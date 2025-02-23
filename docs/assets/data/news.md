@@ -1,10 +1,12 @@
-# Welcome to our news section!
 
-### 2023-10-05 Product Launch
-We're excited to announce our new product. Check it out in the [store](/store)!
+### 2025-02-24 Le site de CurieO fait peau neuve !!!
+# Suivez nos actualitées ici
 
-### 2023-10-06 Important Update
-- Added new features
-- Improved performance
+### 2025-02-24 La boutique est de nouveau pleine !
+Venez jeter un œuil a la [boutique](/store)!
 
-# Thanks for following our updates!
+### 2025-03-13 Conférence avec David Louapre
+Conférence Jeudi 13 mars autour du thème :
+- "Recherche, vulgarisation et jeux vidéo : la diffusion des sciences vers la société".
+
+Plus d'information dans les [actualités](news).

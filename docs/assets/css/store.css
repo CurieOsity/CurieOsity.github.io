@@ -1,18 +1,18 @@
 /* store.css */
+main {
+    padding-top: var(--header-height);
+}
+
 .store-section {
-  padding: 4rem 5%;
-  padding-top: 100px;
+  padding: 0 5%;
   max-width: 1400px;
   margin: 0 auto;
 }
 
 .product-category {
-  margin: 1rem 0 2rem;
   font-size: 2.5rem;
   color: var(--accent);
   border-bottom: 2px solid var(--border);
-  padding-bottom: 0.5rem;
-  scroll-margin-top: 120px;
 }
 
 .product-card {
@@ -74,12 +74,12 @@
 /* Category Navigation */
 .category-nav {
   position: sticky;
-  top: 70px; /* Header height */
+  top: var(--header-height);
   background: var(--glass);
   backdrop-filter: blur(10px);
   z-index: 999;
-  padding: 1rem 5%;
-  margin-bottom: 2rem;
+  padding: .5rem 5%;
+  margin-bottom: 0rem;
   border-bottom: 1px solid var(--border);
 }
 
@@ -87,7 +87,6 @@
   display: flex;
   gap: 2rem;
   overflow-x: auto;
-  padding-bottom: 0.5rem;
 }
 
 .category-link {
