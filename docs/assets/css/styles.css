@@ -211,14 +211,20 @@ nav {
 }
 /* Dynamic Elements */
 .dynamic-text {
+  margin-top: 50px;
   animation: float 3s ease-in-out infinite;
   background: transparent;
   text-shadow: 
+    1px 0px 1px var(--bg),
+    -1px 0px 1px var(--bg),
+    0px 1px 1px var(--bg),
+    0px -1px 1px var(--bg),
     1px 1px 1px var(--bg),
     -1px 1px 1px var(--bg),
     1px -1px 1px var(--bg),
     -1px -1px 1px var(--bg);
   color: var(--accent);
+  line-height: normal;
 }
 
 /* News Section */
@@ -390,9 +396,8 @@ footer {
 }
 
 /* Media Queries */
-@media (max-width: 768px) {
+@media (max-width: 950px) {
   .dynamic-text {
-    margin-top: 50px;
     font-size: 2rem;
   }
   .nav-links {
@@ -440,7 +445,7 @@ footer {
     margin-left: auto;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 950px) {
   .text-container {
     padding: 3rem 5rem;
     max-width: 70%;

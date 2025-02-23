@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "category": "Pulls",
+      "title": "Pull de Promotion",
+      "description": "CurieOsity est enchantée de présenter les nouveaux tote bags de l'UFR de physique de la Sorbonne, en violet et noir. Symboles de notre communauté, ils sont disponibles dès maintenant. Rejoignez-nous en les portant avec fierté !",
+      "colors": ["#522659", "#bab1a9"],
+      "url-store": "https://www.helloasso.com/associations/curieosity/boutiques/sweatshirt-ufr-de-physique-2/widget"
+    },
+    {
+      "category": "Tshirts",
+      "title": "T-shirt CurieOsity",
+      "description": "CurieOsity révèle avec enthousiasme les t-shirts à l'effigie de notre logo, disponibles en violet et noir. Portez notre emblème et affichez votre appartenance à notre communauté dynamique. Disponibles dès maintenant, adoptez le vôtre et faites rayonner CurieOsity !",
+      "colors": ["#522659", "#121212"],
+      "url-store": "https://www.helloasso.com/associations/curieosity/boutiques/t-shirt-ufr-de-physique/widget"
+    },
+    {
+      "category": "Totes",
+      "title": "Tote Bag Physique",
+      "description": "CurieOsity est fière de présenter les pulls officiels de la promotion de physique de la Sorbonne ! Disponibles en Violet et Gris, ces pulls sont l'incarnation du lien qui unit notre communauté étudiante. Portez-les avec fierté et contribuez ainsi au dynamisme de notre UFR. Commandez le vôtre dès maintenant sur notre site.",
+      "colors": ["#522659", "#121212"],
+      "url-store": "https://www.helloasso.com/associations/curieosity/boutiques/tote-bag-ufr-de-physique-2/widget"
+    }
+  ]
+}
