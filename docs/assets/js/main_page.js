@@ -1,5 +1,5 @@
 // Global variables
-const path_main = "/assets/main_page"
+const path_main = "/assets/data/main_page"
 
 // Dynamic Content Manager
 const DynamicContent = {

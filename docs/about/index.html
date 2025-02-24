@@ -9,24 +9,56 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/about.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
+
 <body data-theme="dark">
 
     <div id="header"></div>
 
     <main>
-      <section class="hero">
-        <div class="background-media"></div>
-        <h1 class="dynamic-text">Bienvenue chez CurieOsity</h1>
-        <div id="news-container"></div>
+      <!-- Section 1: Association Description -->
+      <section class="hero about-hero">
+        <div class="text-container">
+          <img src="/assets/CurieO/Logo_full_dark.svg" alt="CurieOsity Logo" class="logo-theme logo-dark">
+          <img src="/assets/CurieO/Logo_full_light.svg" alt="CurieOsity Logo" class="logo-theme logo-light">
+          <h1>CurieOsity - Association de Physique</h1>
+          <p> Fondée en 2014, CurieOsity est une association de type loi 1901.
+            Elle regroupe les étudiantes et étudiants de physique de la licence au doctorat. </br>
+            Nous sommes une association de Sorbonne Université
+            qui à pour but de former une communauté à l'intérieur de l'UFR de physique
+            ainsi que d'aider les étudiants en physique dans l'ensemble de leurs projets.
+            L'association est gérée pour et par les étudiants avec le soutien de l'UFR de physique.
+            L'association travaille avec les différents départements/composantes de l'UFR de physique
+            (licence, master, laboratoires, ...) et participe aux évènements de ces derniers.</p>
+          <a href="/assets/CurieO/Statuts_curieosity_2022.pdf" class="glass-container pdf-link">
+                  📄 Consulter nos statuts
+          </a>
+        </div>
       </section>
+
+      <!-- Section 2: Timeline -->
+      <section class="timeline-section">
+        <h2>Notre Histoire</h2>
+        <div class="timeline-container">
+          <div class="timeline-track" id="timelineTrack"></div>
+        </div>
+      </section>
+
+      <!-- Event Modal -->
+      <div id="eventModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div id="modalContent"></div>
+        </div>
+      </div>
     </main>
 
     <div id="footer"></div>
 
     <script src="/assets/js/head-foot.js"></script>
+    <script src="/assets/js/about.js" defer></script>
     <script src="/assets/js/main.js" defer></script>
-    <script src="/assets/js/newsLoader.js" defer></script>
 </body>
 </html>
