@@ -41,7 +41,7 @@ main {
 .email-contact {
   font-size: 1.2rem;
   margin: 1rem 0;
-  color: var(--accent) !important;
+  color: var(--accent) ;
   text-decoration: none;
   transition: all 0.3s ease;
   display: inline-block;
@@ -50,7 +50,7 @@ main {
 }
 
 .email-contact:hover {
-  color: var(--text) !important;
+  color: var(--text) ;
   background-color: var(--accent);
   transform: scale(1.05);
 }
@@ -68,19 +68,19 @@ main {
   opacity: 0.9;
 }
 .map-transitioning {
-  opacity: 0.85 !important;
+  opacity: 0.85 ;
 }
 
 .leaflet-tile-container img {
-  transition: opacity 0.3s ease !important;
+  transition: opacity 0.3s ease ;
 }
 
 .leaflet-control-attribution {
-  background: var(--glass) !important;
-  color: var(--text) !important;
-  backdrop-filter: blur(10px) !important;
-  border-radius: 4px !important;
-  padding: 2px 8px !important;
+  background: var(--glass) ;
+  color: var(--text) ;
+  backdrop-filter: blur(10px) ;
+  border-radius: 4px ;
+  padding: 2px 8px ;
 }
 
 .leaflet-control-zoom {
@@ -103,31 +103,32 @@ main {
 }
 
 .leaflet-container a.leaflet-popup-close {
-  color: var(--text) !important;
+  color: var(--text);
 }
 
 .leaflet-popup {
-  background: var(--glass) !important;
-  backdrop-filter: blur(10px) !important;
-  border: 1px solid var(--border) !important;
-  border-radius: 8px !important;
+  background: var(--glass) ;
+  backdrop-filter: blur(10px) ;
+  border: 1px solid var(--border) ;
+  border-radius: 8px ;
 }
 
 .leaflet-popup-content-wrapper {
-  background: transparent !important;
-  color: var(--text) !important;
-  box-shadow: none !important;
+  background: transparent ;
+  color: var(--text) ;
+  box-shadow: none ;
 }
 
 .leaflet-popup-tip {
-  background: var(--glass) !important;
-  box-shadow: none !important;
+  background: var(--glass);
+  box-shadow: none;
 }
 
 .leaflet-popup-close-button span {
-  color: var(--text) !important;
-  font-size: 24px !important;
-  margin-top: 2px !important;
+  display: none;
+  color: var(--text);
+  font-size: 24px;
+  margin-top: 2px;
 }
 
 /* Ajoutez à contact.css */

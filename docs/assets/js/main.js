@@ -16,7 +16,6 @@ const ThemeManager = {
     document.body.setAttribute('data-theme', theme);
     document.querySelector('.theme-toggle').textContent = 
       theme === 'dark' ? '🌙' : '☀️';
-    document.querySelector('.logo img').src = `${path_logo}/Logo_full_${theme}.svg`;
     localStorage.setItem('theme', theme);
   },
 

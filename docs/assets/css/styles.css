@@ -35,6 +35,24 @@ body[data-theme="light"] {
   --border: var(--border-light);
 }
 
+.logo {
+  background: transparent;
+  height: 5.5rem;
+  width: 10rem;
+  margin: auto 0;
+  padding: auto 0;
+}
+
+.logo-theme {
+  display: none;
+  height: 100%
+}
+
+body[data-theme="dark"] .logo_dark,
+body[data-theme="light"] .logo_light {
+  display: inherit;
+}
+
 /* Base Styles */
 body {
   color: var(--text);
@@ -52,26 +70,27 @@ nav {
   justify-content: flex-start;
   align-items: center;
   gap: 2rem;
-  padding: 1.5rem 5%;
+  padding: 0 5%;
   background: var(--glass);
   backdrop-filter: blur(10px);
   position: fixed;
   top: 0;
   width: 100%;
+  height: 6rem;
   z-index: 1000;
   border-bottom: 1px solid var(--border);
 }
-.logo {
+
+.logo a {
+  display: table-cell;
   font-size: 1.75rem;
   font-weight: 700;
-  background: transparent;
   color: var(--accent);
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
 }
-.logo img {
-  margin-top: -2rem;
-  margin-bottom: -2rem;
-  height: 5.25rem;
-}
+
 
 .nav-links a {
   color: var(--text);
