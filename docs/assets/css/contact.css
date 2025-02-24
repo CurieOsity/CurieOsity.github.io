@@ -1,4 +1,8 @@
 /* contact.css */
+main {
+    padding-top: var(--header-height);
+}
+
 .contact-section {
   display: grid;
   gap: 2rem;
