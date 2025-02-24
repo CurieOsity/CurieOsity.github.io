@@ -1,9 +1,23 @@
 [
+    {"type": "year", "year": 2025},
+    {"type": "year", "year": 2024},
+    {"type": "year", "year": 2023},
+    {"type": "year", "year": 2022},
+    {"type": "year", "year": 2021},
+    {"type": "year", "year": 2020},
+    {"type": "year", "year": 2019},
+    {"type": "year", "year": 2018},
+    {"type": "year", "year": 2017},
+    {"type": "year", "year": 2016},
+    {"type": "year", "year": 2015},
     {
+        "type": "event",
         "title": "Fondation de l'association",
         "date": "2014-09-01",
-        "image": "/assets/data/events-pict/fondation.jpg",
+        "image": "/assets/data/events-pics/fondation.jpg",
         "shortDescription": "Création officielle de CurieOsity",
-        "markdownFile": "/assets/data/events/fondation.md"
-    }
+        "markdownFile": "/assets/data/events/fondation.md",
+        "template": "election"
+    },
+    {"type": "year", "year": 2014}
 ]
