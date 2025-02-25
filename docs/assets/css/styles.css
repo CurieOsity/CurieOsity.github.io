@@ -1,6 +1,7 @@
 /* Variables */
 :root {
-  --header-height: 5.5rem;
+  --header-height: 6rem;
+
   --bg-dark: rgba(10, 10, 10, 1);
   --bg-light: rgba(245, 245, 245, 1);
   --text-dark: rgba(255, 255, 255, 1);
@@ -9,6 +10,7 @@
   --glass-light: rgba(245, 245, 245, 0.3);
   --border-dark: rgba(255, 255, 255, 0.2);
   --border-light: rgba(0, 0, 0, 0.2);
+
   --accent: rgba(155, 39, 176, 1);
   --accent-bg: rgba(255, 255, 255, 1);
 }
@@ -35,6 +37,20 @@ body[data-theme="light"] {
   --border: var(--border-light);
 }
 
+
+.img-dark, .img-light {
+    display: none
+}
+
+body[data-theme="dark"] .img-dark,
+body[data-theme="light"] .img-light {
+    display: inherit;
+}
+
+main {
+    padding-top: var(--header-height);
+}
+
 .logo {
   background: transparent;
   height: 5.5rem;
@@ -44,14 +60,9 @@ body[data-theme="light"] {
 }
 
 .logo-theme {
-  display: none;
   height: 100%
 }
 
-body[data-theme="dark"] .logo_dark,
-body[data-theme="light"] .logo_light {
-  display: inherit;
-}
 
 /* Base Styles */
 body {

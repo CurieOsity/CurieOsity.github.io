@@ -1,12 +1,13 @@
 .logo-theme {
   display: none;
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
+  margin: auto;
 }
 
 body[data-theme="dark"] .logo-dark,
 body[data-theme="light"] .logo-light {
-  display: block;
+  display: inherit;
 }
 
 /* PDF CTA Button Styling */

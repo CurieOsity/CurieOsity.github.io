@@ -1,8 +1,4 @@
 /* Timeline Layout */
-main {
-    padding-top: var(--header-height);
-}
-
 #news-container.timeline {
     position: relative;
     padding: 3rem 0;
