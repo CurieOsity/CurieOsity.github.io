@@ -1,172 +1,56 @@
 /* contact.css */
-main {
-    padding-top: var(--header-height);
-}
-
-.contact-section {
-  display: grid;
-  gap: 2rem;
-  padding: 2rem 5%;
-  max-width: 1200px;
-  margin: 3rem auto;
-}
-
 .contact-box {
-  background: var(--glass);
   backdrop-filter: blur(10px);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2rem;
+  border-radius: var(--big-radius);
+  background: var(--glass);
   text-align: center;
-  margin: 1rem 0;
+  max-width: var(--max-width);
+  padding: 0;
+  border: var(--border);
+  margin: 1rem auto;
 }
-
-.social-media {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  font-size: 2.5rem;
-}
-
 .social-media a {
-  color: var(--text);
-  transition: all 0.3s ease;
+  font-size: 2.5rem;
+  gap: 2rem;
 }
 
-.social-media a:hover {
-  color: var(--accent);
-  transform: scale(1.2);
+.join-section {
+  text-align: center;
+  padding: 2.5rem;
 }
 
-.email-contact {
-  font-size: 1.2rem;
-  margin: 1rem 0;
-  color: var(--accent) ;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-}
-
-.email-contact:hover {
-  color: var(--text) ;
-  background-color: var(--accent);
-  transform: scale(1.05);
-}
-
+/* Map Config */
 #map {
-  height: 400px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
+  border-radius: var(--big-radius);
+  margin: 0 auto;
   margin-top: 2rem;
   background: var(--bg);
-  transition: opacity 0.3s ease;
+  height: 400px;
+  max-width: var(--max-width)
 }
-
-#map.map-moving {
-  opacity: 0.9;
-}
-.map-transitioning {
-  opacity: 0.85 ;
-}
-
-.leaflet-tile-container img {
-  transition: opacity 0.3s ease ;
-}
-
-.leaflet-control-attribution {
-  background: var(--glass) ;
-  color: var(--text) ;
-  backdrop-filter: blur(10px) ;
-  border-radius: 4px ;
-  padding: 2px 8px ;
-}
-
 .leaflet-control-zoom {
-  border-radius: 8px;
-  overflow: hidden;
+  display: none;
 }
-
-.leaflet-control-zoom a {
-  background: var(--glass);
-  color: var(--text);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border);
-}
-
 
 /* Leaflet Popup Customization */
 .leaflet-popup-content {
   font-family: 'Inter', sans-serif;
   color: var(--text);
 }
-
-.leaflet-container a.leaflet-popup-close {
-  color: var(--text);
-}
-
 .leaflet-popup {
-  background: var(--glass) ;
-  backdrop-filter: blur(10px) ;
-  border: 1px solid var(--border) ;
-  border-radius: 8px ;
+  backdrop-filter: blur(2px);
+  border-radius: 8px;
+  border: none;
 }
-
 .leaflet-popup-content-wrapper {
-  background: transparent ;
-  color: var(--text) ;
-  box-shadow: none ;
+  background: var(--glass);
+  color: var(--text);
+  box-shadow: none;
 }
-
 .leaflet-popup-tip {
   background: var(--glass);
   box-shadow: none;
 }
-
-.leaflet-popup-close-button span {
+.leaflet-popup-close-button {
   display: none;
-  color: var(--text);
-  font-size: 24px;
-  margin-top: 2px;
-}
-
-/* Ajoutez à contact.css */
-.join-section {
-  text-align: center;
-  padding: 2.5rem;
-}
-
-.form-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 1.2rem 2.5rem;
-  background: var(--accent);
-  color: var(--text);
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid transparent;
-  margin-top: 1.5rem;
-}
-
-.form-link:hover {
-  background: transparent;
-  color: var(--accent);
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(155, 39, 176, 0.15);
-}
-
-.form-link i {
-  font-size: 1.2em;
-}
-
-@media (max-width: 768px) {
-  .form-link {
-    padding: 1rem 2rem;
-    font-size: 0.9rem;
-  }
 }

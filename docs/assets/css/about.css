@@ -10,38 +10,6 @@ body[data-theme="light"] .logo-light {
   display: inherit;
 }
 
-/* PDF CTA Button Styling */
-.cta-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
-  margin: 1rem 2rem;
-  border-radius: 20px;
-  background: var(--accent);
-  color: var(--accent-bg);
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid transparent;
-}
-
-.cta-button:hover {
-  background: var(--bg);
-  color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(155, 39, 176, 0.3);
-  border-color: var(--accent);
-}
-
-.cta-button i {
-  transition: transform 0.3s ease;
-}
-
-.cta-button:hover i {
-  transform: scale(1.1);
-  color: currentColor;
-}
-
 /* About Hero Section */
 .about-hero {
     position: relative;
