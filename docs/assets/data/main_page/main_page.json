@@ -10,31 +10,31 @@
   "backgrounds": [
     {
       "type": "image",
-      "name": "heic0609a.jpg",
+      "name": "heic0609a.avif",
       "source": "NASA, ESA, and the Hubble Heritage",
       "source-url": "https://esahubble.org/images/heic0609a"
     },
     {
       "type": "image",
-      "name": "heic2007a.jpg",
+      "name": "heic2007a.avif",
       "source": "NASA, ESA, and STScI",
       "source-url": "https://esahubble.org/images/heic2007a/"
     },
     {
       "type": "image",
-      "name": "Aurora_Australis_in_Antarctica.jpg",
+      "name": "Aurora_Australis_in_Antarctica.avif",
       "source": "ESA/IPEV/PNRA-J. Studer",
       "source-url": "https://www.esa.int/ESA_Multimedia/Images/2024/12/Aurora_Australis_in_Antarctica"
     },
     {
       "type": "image",
-      "name": "IC2163_NGC2207.jpg",
+      "name": "IC2163_NGC2207.avif",
       "source": "NASA, ESA, CSA, STScI",
       "source-url": "https://webbtelescope.org/contents/media/images/2024/136/01J9S544K01B5TSTPX5MS5PCNA"
     },
     {
       "type": "image",
-      "name": "Pillars_of_Creation.jpg",
+      "name": "Pillars_of_Creation.avif",
       "source": "NASA, ESA, CSA, STScI",
       "source-url": "https://webbtelescope.org/contents/media/images/01GK2KKTR81SGYF24YBGYG7TAP"
     },

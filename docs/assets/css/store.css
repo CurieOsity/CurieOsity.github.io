@@ -4,24 +4,24 @@ main {
 }
 
 .store-section {
-  padding: 0 5%;
-  max-width: 1400px;
+  padding: 0 5rem;
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 
 .product-category {
   font-size: 2.5rem;
   color: var(--accent);
-  border-bottom: 2px solid var(--border);
+  border-bottom: 2px solid var(--border-color);
 }
 
 .product-card {
   background: var(--glass);
   backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 2rem;
+  border-radius: var(--big-radius);
+  padding: 2rem 0;
   margin: 2rem 0;
-  border: 1px solid var(--border);
+  border: none;
   transition: transform 0.3s ease;
 }
 
@@ -48,69 +48,68 @@ main {
 }
 
 .color-swatch {
-  width: 24px;
-  height: 24px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  border: 2px solid var(--border);
+  border: 3px solid var(--border-color);
 }
 
 .store-iframe {
   width: 100%;
   height: 500px;
   border: none;
-  border-radius: 12px;
+  border-radius: var(--big-radius);
   background: var(--bg);
   margin-top: 1rem;
 }
 
 .error-message {
+  border-radius: var(--big-radius);
+  background: var(--glass);
   margin-top: 2rem;
-  color: var(--accent);
   text-align: center;
   padding: 2rem;
-  background: var(--glass);
-  border-radius: 16px;
+  color: var(--accent);
 }
+
 /* Category Navigation */
 .category-nav {
-  position: sticky;
-  top: var(--header-height);
-  background: var(--glass);
   backdrop-filter: blur(10px);
+  border-bottom: var(--border);
+  background: var(--glass);
+  position: sticky;
   z-index: 999;
-  padding: .5rem 5%;
-  margin-bottom: 0rem;
-  border-bottom: 1px solid var(--border);
+  padding: 0;
+  margin: 0;
+  height: 4rem;
+  top: calc(var(--header-height) - 1rem);
 }
 
 .category-menu {
-  display: flex;
-  gap: 2rem;
   overflow-x: auto;
+  display: flex;
+  gap: 1rem;
 }
 
 .category-link {
-  color: var(--text);
   text-decoration: none;
-  font-weight: 500;
   white-space: nowrap;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
   transition: all 0.3s ease;
+  padding: 0 1rem;
+  color: var(--text);
 }
 
 .category-link:hover {
-  background: var(--border);
   color: var(--accent);
-}
-
-.category-section {
-  scroll-margin-top: 140px;
 }
 
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
+}
+
+.category-section {
+  scroll-margin-top: calc(var(--header-height) + 3rem);
 }
 
 /* Mobile */
@@ -127,3 +126,5 @@ html {
     padding: 1.5rem;
   }
 }
+
+
