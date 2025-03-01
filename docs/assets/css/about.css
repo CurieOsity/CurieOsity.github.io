@@ -1,196 +1,51 @@
 .logo-theme {
   display: none;
-  width: auto;
-  height: 100%;
   margin: auto;
-}
-
-body[data-theme="dark"] .logo-dark,
-body[data-theme="light"] .logo-light {
-  display: inherit;
+  height: 100%;
+  width: auto;
 }
 
 /* About Hero Section */
 .about-hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 5%;
-    text-align: center;
-    background: linear-gradient(45deg, var(--glass) 0%, var(--bg) 100%);
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 5%;
+  text-align: center;
+  background: linear-gradient(45deg, var(--glass) 0%, var(--bg) 100%);
 }
 
 .about-hero .text-container {
-    max-width: 800px;
-    position: relative;
-    z-index: 2;
+  max-width: 800px;
+  position: relative;
+  z-index: 2;
 }
 
 .about-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    color: var(--accent);
-}
-
-/* Timeline Section */
-.timeline-section {
-    position: relative;
-    padding: 4rem 5%;
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-}
-
-.timeline-container {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.timeline-track {
-    position: relative;
-    padding: 2rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-}
-
-/* Timeline Vertical Line */
-.timeline-track::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background: var(--accent);
-    transform: translateX(-50%);
-    z-index: 1;
-}
-
-/* Timeline Elements */
-.timeline-element {
-    position: relative;
-    width: calc(50% - 40px);
-    padding: 1.5rem;
-    background: var(--glass);
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    backdrop-filter: blur(8px);
-    transition: transform 0.3s ease;
-    z-index: 2;
-}
-
-.timeline-element:nth-child(odd) {
-    align-self: flex-start;
-    margin-left: 40px;
-}
-
-.timeline-element:nth-child(even) {
-    align-self: flex-end;
-    margin-right: 40px;
-}
-
-.event-dot {
-    position: absolute;
-    top: 24px;
-    width: 20px;
-    height: 20px;
-    background: var(--accent);
-    border-radius: 50%;
-    border: 3px solid var(--bg);
-}
-
-.timeline-element:nth-child(odd) .event-dot {
-    right: -30px;
-}
-
-.timeline-element:nth-child(even) .event-dot {
-    left: -30px;
-}
-
-/* Timeline Element Hover Effects */
-.timeline-element {
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.timeline-element:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(155, 39, 176, 0.2);
-  border-color: var(--accent);
-}
-
-.timeline-element:hover .event-title {
+  margin-bottom: 2rem;
+  font-size: 3rem;
   color: var(--accent);
 }
 
-/* Event Dot Animation */
-.event-dot {
-  transition: all 0.3s ease;
-}
-
-.timeline-element:hover .event-dot {
-  transform: scale(1.2);
-  box-shadow: 0 0 10px var(--accent);
-}
-
-.event-image {
-    width: 100%;
-    max-height: 250px;
-    object-fit: contain;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
-
-.event-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--accent);
-}
-
-.event-date {
-    font-size: 0.9rem;
-    color: var(--text);
-    opacity: 0.8;
-}
-
-/* Year Markers */
-.year-marker {
-    position: relative;
-    width: 100%;
-    text-align: center;
-    margin: 3rem 0;
-    z-index: 3;
-}
-
-.year-text {
-    display: inline-block;
-    padding: 0.5rem 2rem;
-    background: var(--accent);
-    color: var(--accent-bg);
-    border-radius: 24px;
-    font-weight: 700;
-    font-size: 1.5rem;
+.hero-content p {
+  text-align: justify;
 }
 
 /* Modal Styles */
-/* Add these styles */
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999; /* Higher than header/footer */
   backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  display: none;
+  z-index: 9999;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
 }
 
 .modal.visible {
@@ -198,63 +53,45 @@ body[data-theme="light"] .logo-light {
 }
 
 .modal-content {
-  max-width: 600px;
-  width: 90%;
+  border-radius: 16px;
+  background: var(--glass);
   max-height: 80vh;
   overflow-y: auto;
+  max-width: 600px;
   position: relative;
-  background: var(--glass);
-  border-radius: 16px;
-  padding: 2rem;
   position: relative;
   overflow: visible;
+  padding: 2rem;
   border: 1px solid var(--border);
+  width: 90%;
 }
 
 /* Modal Enhancements */
 .modal-header {
-  background: var(--accent);
-  color: var(--accent-bg);
-  padding: 1.5rem;
   border-radius: 16px 16px 0 0;
-  margin: -2rem -2rem 2rem;
-  position: relative;
-  top: -1.6rem;
+  background: var(--accent);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding: 1.5rem;
+  margin: -2rem -2rem 2rem;
+  color: var(--accent-bg);
+  top: -1.6rem;
 }
 
 
 .election-template .modal-header {
-    background: var(--accent);
-    color: var(--accent-bg);
-    padding: 1rem;
-    border-radius: 8px;
-    margin: -1rem -1rem 2rem;
+  border-radius: 8px;
+  background: var(--accent);
+  padding: 1rem;
+  margin: -1rem -1rem 2rem;
+  color: var(--accent-bg);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .timeline-element {
-        width: 100%;
-        margin: 0 0 2rem 0 !important;
-    }
-    
-    .timeline-track::before {
-        left: 20px;
-    }
-    
-    .event-dot {
-        left: -25px !important;
-        right: auto !important;
-    }
-    
-    .year-text {
-        font-size: 1.2rem;
-    }
-    
-    .about-hero h1 {
-        font-size: 2rem;
-    }
+  .about-hero h1 {
+    font-size: 2rem;
+  }
 }
 
 
@@ -291,9 +128,4 @@ body[data-theme="light"] .logo-light {
   50% { opacity: 0.5; }
 }
 
-@media (hover: none) {
-  .timeline-element:hover {
-    transform: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-}
+

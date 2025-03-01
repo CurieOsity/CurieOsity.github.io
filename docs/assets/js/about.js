@@ -40,12 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
             ${event.image ? 
                 `<img src="${event.image}" alt="${event.title}" class="event-image">` : 
                 '<div class="event-icon">📅</div>'}
-            <div class="event-title">${event.title}</div>
             <div class="event-date">${new Date(event.date).toLocaleDateString('fr-FR', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
             })}</div>
+            <div class="event-title">${event.title}</div>
+
         `;
 
         element.addEventListener('click', () => showEventDetails(event));
