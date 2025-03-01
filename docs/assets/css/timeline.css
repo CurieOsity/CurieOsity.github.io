@@ -1,0 +1,181 @@
+/* Timeline Section */
+.timeline-section {
+  position: relative;
+  padding: 4rem 5%;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+}
+
+.timeline-container {
+  position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.timeline-track {
+  position: relative;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Timeline Vertical Line */
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: var(--accent);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Timeline Elements */
+.timeline-element {
+  position: relative;
+  width: calc(50% - 40px);
+  padding: 1.5rem;
+  background: var(--glass);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.timeline-element:nth-child(odd) {
+  align-self: flex-start;
+  margin-left: 40px;
+}
+
+.timeline-element:nth-child(even) {
+  align-self: flex-end;
+  margin-right: 40px;
+}
+
+.event-dot {
+  position: absolute;
+  top: 24px;
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: 50%;
+  border: 3px solid var(--bg);
+}
+
+.timeline-element:nth-child(odd) .event-dot {
+  right: -30px;
+}
+
+.timeline-element:nth-child(even) .event-dot {
+  left: -30px;
+}
+
+/* Timeline Element Hover Effects */
+.timeline-element {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-element:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(155, 39, 176, 0.2);
+  border-color: var(--accent);
+}
+
+.timeline-element:hover .event-title {
+  color: var(--accent);
+}
+
+/* Event Dot Animation */
+.event-dot {
+  transition: all 0.3s ease;
+}
+
+.timeline-element:hover .event-dot {
+  transform: scale(1.2);
+}
+
+.event-image {
+  width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.event-title {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.event-date {
+  font-weight: 900;
+  text-align: center;
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+/* Add to timeline.css */
+.event-content {
+  padding: 1rem;
+}
+
+.event-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+/* Year Markers */
+.year-marker {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin: 3rem 0;
+  z-index: 3;
+}
+
+.year-text {
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  background: var(--accent);
+  color: var(--accent-bg);
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .timeline-element {
+    width: 100%;
+    margin: 0 0 2rem 0 !important;
+  }
+  
+  .timeline-track::before {
+    left: 20px;
+  }
+  
+  .event-dot {
+    left: -25px !important;
+    right: auto !important;
+  }
+  
+  .year-text {
+    font-size: 1.2rem;
+  }
+}
+
+@media (hover: none) {
+  .timeline-element:hover {
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}

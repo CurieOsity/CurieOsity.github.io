@@ -1,6 +1,3 @@
-// Global variables
-const path_logo = "/assets/CurieO"
-
 // Theme Manager
 const ThemeManager = {
   init() {
@@ -14,9 +11,8 @@ const ThemeManager = {
 
   applyTheme(theme) {
     document.body.setAttribute('data-theme', theme);
-    document.querySelector('.theme-toggle').textContent = 
-      theme === 'dark' ? '🌙' : '☀️';
-    document.querySelector('.logo img').src = `${path_logo}/Logo_full_${theme}.svg`;
+    document.querySelector('.theme-toggle')
+          .textContent = theme === 'dark' ? '🌙' : '☀️';
     localStorage.setItem('theme', theme);
   },
 

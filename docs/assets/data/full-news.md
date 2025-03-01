@@ -1,5 +1,5 @@
 ## 13/03/2025 - Conférence avec David Louapre
-[![David Louapre](/assets/data/conf-pressed/David_Louapre.png)](/assets/CurieO/conf/David_Louapre.pdf)
+[![David Louapre](/assets/data/conf-pressed/David_Louapre.avif)](/assets/CurieO/conf/David_Louapre.pdf)
 
 **Lieu**: Amphi 24, campus jussieu
 
@@ -14,7 +14,7 @@ La diffusion des sciences
 ---
 
 ## 15/11/20XX - Conférence avec Hervé This
-[![Hervé This](/assets/data/conf-pressed/Hervé_This.png)](/assets/CurieO/conf/Hervé_This.pdf)
+[![Hervé This](/assets/data/conf-pressed/Hervé_This.avif)](/assets/CurieO/conf/Hervé_This.pdf)
 
 **Lieu**: Amphi 34A, campus jussieu
 
@@ -25,7 +25,7 @@ La gastronomie moléculaire continue de se développer dans le Monde
 ---
 
 ## 27/10/20XX - Conférence avec Serge Reynaud
-[![Serge Reynaud](/assets/data/conf-pressed/Serge_Reynaud.png)](/assets/CurieO/conf/Serge_Raynaud.pdf)
+[![Serge Reynaud](/assets/data/conf-pressed/Serge_Reynaud.avif)](/assets/CurieO/conf/Serge_Reynaud.pdf)
 
 **Lieu**: Amphi 25, campus jussieu
 
@@ -36,7 +36,7 @@ Le Test du principe d'équivalence par le satellite microscope
 ---
 
 ## 16/10/20XX - Conférence avec Franck Ramus
-[![Franck Ramus](/assets/data/conf-pressed/Franck_Ramus.png)](/assets/CurieO/conf/Franck_Ramus.pdf)
+[![Franck Ramus](/assets/data/conf-pressed/Franck_Ramus.avif)](/assets/CurieO/conf/Franck_Ramus.pdf)
 
 **Lieu**: Amphi 44, campus jussieu
 
@@ -47,7 +47,7 @@ Apprendre à apprendre
 ---
 
 ## 11/05/20XX - Conférence avec Francis Rocard
-[![Francis Rocard](/assets/data/conf-pressed/Francis_Rocard.png)](/assets/CurieO/conf/Francis_rocard.jpeg)
+[![Francis Rocard](/assets/data/conf-pressed/Francis_Rocard.avif)](/assets/CurieO/conf/Francis_rocard.jpeg)
 
 **Lieu**: Amphi 24, campus jussieu
 
@@ -58,7 +58,7 @@ L'homme sur Mars en passant par la Lune
 ---
 
 ## 14/03/20XX - Conférence avec Françoise Combes
-[![Françoise Combes](/assets/data/conf-pressed/Françoise_Combes.png)](/assets/CurieO/conf/Françoise_Combes.jpeg)
+[![Françoise Combes](/assets/data/conf-pressed/Françoise_Combes.avif)](/assets/CurieO/conf/Françoise_Combes.jpeg)
 
 **Lieu**: Amphi 43, campus jussieu
 
@@ -69,7 +69,7 @@ L'ombre des trous noir
 ---
 
 ## 02/03/20XX - Conférence avec Emeline Pouyet
-[![Emeline Pouyet](/assets/data/conf-pressed/Emeline_Pouyet.png)](/assets/CurieO/conf/Emeline_Pouyet.pdf)
+[![Emeline Pouyet](/assets/data/conf-pressed/Emeline_Pouyet.avif)](/assets/CurieO/conf/Emeline_Pouyet.pdf)
 
 **Lieu**: Amphi 34A, campus jussieu
 

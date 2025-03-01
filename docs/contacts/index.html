@@ -1,64 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/"/>
     <title>CurieOsity - Association des étudiants en physique de Sorbonne Université</title>
     <meta name="description" content="Association des étudiants en physique de Sorbonne Université - Vie étudiante, événements, projets et conférences">
+   
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/contact.css">
-</head>
-<body data-theme="dark">
+  </head>
+  <body data-theme="dark">
+    
     <div id="header"></div>
 
     <main class="contact-section">
-        <!-- Social Media -->
-        <div class="contact-box">
-            <h2>Réseaux Sociaux</h2>
-            <div class="social-media">
-                <a href="https://www.facebook.com/curieosity.curieosity.3" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/curieosity.su" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://discord.com/invite/uwAjHAG" target="_blank"><i class="fab fa-discord"></i></a>
-            </div>
+      
+      <div class="contact-box">
+        <h2>Réseaux Sociaux</h2>
+        <div class="social-media social-links">
+          <a href="https://www.facebook.com/curieosity.curieosity.3" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/curieosity.su" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://discord.com/invite/uwAjHAG" target="_blank">
+            <i class="fab fa-discord"></i>
+          </a>
         </div>
+      </div>
 
-        <!-- Email -->
-        <div class="contact-box">
-            <h2>Email</h2>
-            <a href="mailto:curieositysu@gmail.com" class="email-contact">curieositysu@gmail.com</a>
+      <div class="contact-box">
+        <h2>Email</h2>
+        <a href="mailto:curieositysu@gmail.com" class="big-link">
+          curieositysu@gmail.com
+        </a>
+      </div>
+ 
+      <div class="contact-box">
+        <div class="join-section">
+          <h2>Rejoindre l'association</h2>
+          <p>Devenez membre pour accéder à tous nos événements !</p>
+          
+          <a href="https://forms.gle/7dTAZTyjU9MuEaoX7" target="_blank" class="big-button">
+            <i class="fas fa-sign-in-alt"></i> Formulaire d'adhésion
+          </a>
         </div>
-        <div class="contact-box">
-          <div class="glass-container join-section">
-            <h2>Rejoindre l'association</h2>
-            <p>Devenez membre pour accéder à tous nos événements et avantages !</p>
-            <a href="https://forms.gle/7dTAZTyjU9MuEaoX7" 
-               target="_blank"
-               rel="noopener noreferrer"
-               class="form-link">
-               <i class="fas fa-sign-in-alt"></i>
-               Formulaire d'adhésion
-            </a>
-          </div>
-        </div>
-        <!-- Address -->
-        <div class="contact-box">
-            <h2>Adresse</h2>
-            <p>4 Place Jussieu<br>75005 Paris<br>Couloir 22-32, Salle 115</p>
-        </div>
+      </div>
 
-        <!-- Map -->
-        <div id="map"></div>
+      <div class="contact-box">
+        <h2>Adresse</h2>
+        <p>4 Place Jussieu<br>75005 Paris<br>Couloir 22-32, Salle 115</p>
+      </div>
+
+      <div id="map"></div>
     </main>
 
     <div id="footer"></div>
-    
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="/assets/js/contact.js" defer></script>
+
     <script src="/assets/js/head-foot.js"></script>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="/assets/js/contact.js" defer></script>
     <script src="/assets/js/main.js" defer></script>
-</body>
+  </body>
 </html>
