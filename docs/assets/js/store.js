@@ -1,9 +1,9 @@
-// store.js
 async function fetchProducts() {
   try {
     const response = await fetch('/assets/data/products.json');
     const data = await response.json();
     renderProducts(data.products);
+    handleInitialHashScroll();
   } catch (error) {
     console.error('Error loading products:', error);
     document.getElementById('store-container').innerHTML = `
@@ -12,17 +12,27 @@ async function fetchProducts() {
   }
 }
 
+function handleInitialHashScroll() {
+  const hash = window.location.hash;
+  if (hash && window.location.pathname === "/store") {
+    const target = document.querySelector(hash);
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }
+}
+
 function handleCategoryNavigation() {
   document.querySelectorAll('.category-link').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      const hash = new URL(link.href).hash;
-      const target = document.querySelector(hash);
+      const targetUrl = new URL(link.href);
+      history.pushState(null, null, targetUrl.pathname + targetUrl.hash);
+      const target = document.querySelector(targetUrl.hash);
       if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
@@ -32,12 +42,10 @@ function renderProducts(products) {
   const container = document.getElementById('store-container');
   const groupedProducts = groupByCategory(products);
 
-  // Create category navigation
   const categories = Object.keys(groupedProducts);
   const categoryMenu = createCategoryMenu(categories);
   container.insertAdjacentHTML('afterbegin', categoryMenu);
 
-  // Create product sections
   categories.forEach(category => {
     const sectionHTML = `
       <div class="category-section" id="${category.toLowerCase()}">
@@ -78,9 +86,10 @@ function createProductCard(product) {
   `;
 }
 
+
 function createCategoryMenu(categories) {
   const menuItems = categories.map(category => `
-    <a href="${window.location.pathname}#${category.toLowerCase()}" class="category-link">${category}</a>
+    <a href="/store#${category.toLowerCase()}" class="category-link">${category}</a>
   `).join('');
 
   return `
@@ -92,6 +101,4 @@ function createCategoryMenu(categories) {
   `;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  fetchProducts();
-});
+document.addEventListener('DOMContentLoaded', fetchProducts);
