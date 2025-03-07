@@ -78,3 +78,19 @@ L'ombre des trous noir
 Les œuvres d'art à la loupe :
 
 Une étude multi-échelle des peintures historiques
+
+---
+
+## 19/04/2022 - Conférence avec Jean-Philippe Bouchaud
+[![Jean-Philippe Bouchaud](/assets/data/conf-pressed/Jean-Philippe_Bouchaud.avif)](/assets/CurieO/conf/Jean-Philippe_Bouchaud.pdf)
+
+**Lieu**: Amphi 24, campus jussieu
+
+**Début**: 18h30
+
+Crises économiques : un point de vue de physicien
+
+<br>
+<p style="text-align:justify">
+Jean-Philippe Bouchaud est un théoricien de la physique statistique, fondateur de Capital Fund Management et du laboratoire EconophysiX de l'école Polytechnique, ainsi que chaire au Collège de France.
+</p>

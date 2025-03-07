@@ -1,0 +1,41 @@
+{
+    "projects": [
+        {
+            "title": "Cafés profs",
+            "slug": "cafe_prof",
+            "markdown": "/assets/data/projects/cafe_prof.md",
+            "images": [
+                "/assets/data/projects/cafe_prof/LeyronasAffiche.avif",
+                "/assets/data/projects/cafe_prof/TB_old.avif"
+            ],
+            "captions": [
+                "Affiche d'un café prof",
+                "Café prof avec Tristan Briant"
+            ]
+        },
+        {
+            "title": "Conférences",
+            "slug": "conferences",
+            "markdown": "/assets/data/projects/confs.md",
+            "images": [
+                "/assets/data/projects/confs/Herve_This.avif",
+                "/assets/data/projects/confs/HT-show.avif"
+            ],
+            "captions": [
+                "Conférence avec Hervé This",
+                "Conférence avec Hervé This"
+            ]
+        },
+        {
+            "title": "Forum des Masters",
+            "slug": "forum",
+            "markdown": "/assets/data/projects/forum.md",
+            "images": [
+                "/assets/data/projects/forum/forumaster.avif"
+            ],
+            "captions": [
+                "Forum des masters dans le hall de l'Atrium"
+            ]
+        }
+    ]
+}
