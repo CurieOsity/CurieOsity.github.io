@@ -1,173 +1,208 @@
-// Global variables:
-const path_news = "/assets/data/news.md"
+// NewsCarousel.js - Handles loading and display of news content in a carousel format
 
-class NewsSlider {
+// Constants
+const NEWS_MARKDOWN_PATH = "/assets/data/news.md";
+
+class NewsCarousel {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
     this.currentIndex = 0;
     this.slides = [];
-    this.dots = [];
+    this.navigationDots = [];
     this.captions = [];
   }
 
-  async init() {
+  /** Initializes the carousel component */
+  async initialize() {
     if (!this.container) return;
 
     try {
       const markdownContent = await this.fetchNewsContent();
-      const events = this.parseMarkdown(markdownContent);
-      this.createSliderStructure(events);
-      this.initEventListeners();
+      const newsEvents = this.parseMarkdownContent(markdownContent);
+      this.createCarouselStructure(newsEvents);
+      this.initializeEventHandlers();
     } catch (error) {
-      console.error('News loading error:', error);
+      console.error('News carousel initialization failed:', error);
       this.container.remove();
     }
   }
 
+  /** Fetches news content from markdown file */
   async fetchNewsContent() {
-    const response = await fetch(path_news);
-    if (!response.ok) throw new Error('News file not found');
-    const content = await response.text();
-    if (!content.trim()) throw new Error('Empty news file');
-    return content;
+    const response = await fetch(NEWS_MARKDOWN_PATH);
+    if (!response.ok) throw new Error('News content unavailable');
+    return await response.text();
   }
 
-  parseMarkdown(markdown) {
-    const parsedHtml = marked.parse(markdown);
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = parsedHtml;
+  /** Parses markdown content into structured news events */
+  parseMarkdownContent(markdown) {
+    const parsedHTML = marked.parse(markdown);
+    const temporaryContainer = document.createElement('div');
+    temporaryContainer.innerHTML = parsedHTML;
 
+    const newsEvents = [];
     let currentEvent = null;
-    const events = [];
 
-    Array.from(tempDiv.children).forEach(child => {
-      if (child.tagName === 'H3') {
-        currentEvent && events.push(currentEvent);
-        currentEvent = this.createNewsCard(child);
+    // Process each HTML element to create news cards
+    Array.from(temporaryContainer.children).forEach(element => {
+      if (element.tagName === 'H3') {
+        currentEvent && newsEvents.push(currentEvent);
+        currentEvent = this.createNewsCard(element);
       } else if (currentEvent) {
-        this.appendContent(currentEvent, child);
+        this.appendCardContent(currentEvent, element);
       }
     });
 
-    currentEvent && events.push(currentEvent);
-    return events;
+    currentEvent && newsEvents.push(currentEvent);
+    return newsEvents.filter(Boolean); // Remove any null entries
   }
 
+  /** Creates a news card element from an H3 header */
   createNewsCard(headerElement) {
-    const match = headerElement.textContent.match(/^(\d{4}-\d{2}-\d{2})\s+(.+)/);
-    if (!match) return null;
-
-    const card = document.createElement('div');
-    card.className = 'news-card';
-    card.innerHTML = `
-      <div class="event-date-title">
-        <h4 class="date">${match[1]}<h4>
-        <h3>${match[2]}</h3>
-      </div>
-      <div class="event-content"></div>
-    `;
-    return card;
-  }
-
-  appendContent(card, element) {
-    const content = card.querySelector('.event-content');
-    if (element.nodeName === 'UL') {
-      content.appendChild(element.cloneNode(true));
-    } else if (element.textContent.trim()) {
-      content.appendChild(element.cloneNode(true));
+    // Expected format: "YYYY-MM-DD Title Text"
+    const dateTitleMatch = headerElement.textContent.match(/^(\d{4}-\d{2}-\d{2})\s+(.+)/);
+    if (!dateTitleMatch) {
+      console.warn('Invalid news header format:', headerElement.textContent);
+      return null;
     }
+
+    const cardTemplate = `
+      <div class="news-card">
+        <div class="event-date-title">
+          <h4 class="date">${dateTitleMatch[1]}<h4>
+          <h3>${dateTitleMatch[2]}</h3>
+        </div>
+        <div class="event-content"></div>
+      </div>
+    `;
+    
+    return new DOMParser().parseFromString(cardTemplate, 'text/html').body.firstChild;
   }
 
-  createSliderStructure(events) {
-    const carousel = document.createElement('div');
-    carousel.className = 'project-carousel';
-    
-    const carouselFooter = document.createElement('div');
-    carouselFooter.className = 'carousel-footer';
-    
+  /** Appends content to a news card */
+  appendCardContent(card, contentElement) {
+    const contentContainer = card.querySelector('.event-content');
+    const shouldAppend = contentElement.nodeName === 'UL' || contentElement.textContent.trim();
+    shouldAppend && contentContainer.appendChild(contentElement.cloneNode(true));
+  }
+
+  /** Builds the carousel DOM structure */
+  createCarouselStructure(events) {
+    const carousel = this.createCarouselSkeleton();
+    this.createSlidesAndDots(events, carousel.imagesContainer);
+    this.container.appendChild(carousel.mainElement);
+    this.slides = Array.from(carousel.imagesContainer.children);
+  }
+
+  /** Creates basic carousel structure elements */
+  createCarouselSkeleton() {
+    const elements = {
+      mainElement: document.createElement('div'),
+      imagesContainer: document.createElement('div'),
+      footer: document.createElement('div'),
+    };
+
+    elements.mainElement.className = 'project-carousel';
+    elements.imagesContainer.className = 'carousel-images';
+    elements.footer.className = 'carousel-footer';
+    elements.footer.appendChild(this.createControlElements());
+
+    elements.mainElement.append(elements.imagesContainer, elements.footer);
+    return elements;
+  }
+
+  /** Creates navigation controls */
+  createControlElements() {
     const controls = document.createElement('div');
     controls.className = 'carousel-controls';
-    
-    this.prevBtn = this.createControlButton('prev');
-    this.nextBtn = this.createControlButton('next');
+
+    this.previousButton = this.createNavigationButton('previous');
+    this.nextButton = this.createNavigationButton('next');
     this.dotsContainer = document.createElement('div');
     this.dotsContainer.className = 'carousel-dots';
 
-    controls.appendChild(this.prevBtn);
-    controls.appendChild(this.dotsContainer);
-    controls.appendChild(this.nextBtn);
-    
-    carouselFooter.appendChild(controls);
-    
-    const carouselImages = document.createElement('div');
-    carouselImages.className = 'carousel-images';
-    
+    controls.append(this.previousButton, this.dotsContainer, this.nextButton);
+    return controls;
+  }
+
+  /** Creates individual navigation buttons */
+  createNavigationButton(type) {
+    const button = document.createElement('button');
+    button.className = `carousel-${type === 'previous' ? 'prev' : 'next'}`;
+    button.setAttribute('aria-label', `${type} slide`);
+    button.innerHTML = `<i class="fas fa-chevron-${type === 'previous' ? 'left' : 'right'}"></i>`;
+    button.addEventListener('click', () => 
+      this.handleSlideChange(type === 'previous' ? -1 : 1)
+    );
+    return button;
+  }
+
+  /** Creates slides and navigation dots */
+  createSlidesAndDots(events, container) {
     events.forEach((event, index) => {
-      const container = document.createElement('div');
-      container.className = `carousel-item-container ${index === 0 ? 'active' : ''}`;
-      container.appendChild(event);
-      carouselImages.appendChild(container);
+      const slideWrapper = document.createElement('div');
+      slideWrapper.className = `carousel-item-container ${index === 0 ? 'active' : ''}`;
+      slideWrapper.appendChild(event);
+      container.appendChild(slideWrapper);
 
       const dot = document.createElement('div');
       dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
-      dot.addEventListener('click', () => this.updateSlide(index));
-      this.dots.push(dot);
+      dot.addEventListener('click', () => this.updateActiveElements(index));
+      this.navigationDots.push(dot);
       this.dotsContainer.appendChild(dot);
     });
-
-    carousel.appendChild(carouselImages);
-    carousel.appendChild(carouselFooter);
-    this.container.appendChild(carousel);
-    this.slides = Array.from(carouselImages.children);
   }
 
-  createControlButton(type) {
-    const btn = document.createElement('button');
-    btn.className = `carousel-${type}`;
-    btn.setAttribute('aria-label', `${type === 'prev' ? 'Previous' : 'Next'} slide`);
-    btn.innerHTML = `<i class="fas fa-chevron-${type === 'prev' ? 'left' : 'right'}"></i>`;
-    btn.addEventListener('click', () => 
-      this.updateSlide(this.currentIndex + (type === 'prev' ? -1 : 1))
-    );
-    return btn;
+  /** Initializes event listeners */
+  initializeEventHandlers() {
+    this.initializeTouchHandling();
+    this.initializeKeyboardNavigation();
   }
 
-  initEventListeners() {
-    // Touch events
-    let touchStartX = 0;
+  /** Handles touch swipe events */
+  initializeTouchHandling() {
+    let touchStartPosition = 0;
+    
     this.container.addEventListener('touchstart', (e) => {
-      touchStartX = e.touches[0].clientX;
+      touchStartPosition = e.touches[0].clientX;
     });
     
     this.container.addEventListener('touchend', (e) => {
-      const touchEndX = e.changedTouches[0].clientX;
-      const diff = touchStartX - touchEndX;
-      if (Math.abs(diff) > 50) {
-        this.updateSlide(diff > 0 ? this.currentIndex + 1 : this.currentIndex - 1);
+      const touchEndPosition = e.changedTouches[0].clientX;
+      const deltaX = touchStartPosition - touchEndPosition;
+      if (Math.abs(deltaX) > 50) {
+        this.handleSlideChange(deltaX > 0 ? 1 : -1);
       }
-    });
-
-    // Keyboard events
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') this.updateSlide(this.currentIndex - 1);
-      if (e.key === 'ArrowRight') this.updateSlide(this.currentIndex + 1);
     });
   }
 
-  updateSlide(newIndex) {
-    newIndex = (newIndex + this.slides.length) % this.slides.length;
-    
+  /** Handles keyboard arrow navigation */
+  initializeKeyboardNavigation() {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') this.handleSlideChange(-1);
+      if (e.key === 'ArrowRight') this.handleSlideChange(1);
+    });
+  }
+
+  /** Updates slide position */
+  handleSlideChange(offset) {
+    const newIndex = (this.currentIndex + offset + this.slides.length) % this.slides.length;
+    this.updateActiveElements(newIndex);
+  }
+  
+  /** Updates visible slide and navigation state */
+  updateActiveElements(newIndex) {
     this.slides[this.currentIndex].classList.remove('active');
-    this.dots[this.currentIndex].classList.remove('active');
+    this.navigationDots[this.currentIndex].classList.remove('active');
     
     this.currentIndex = newIndex;
     
     this.slides[this.currentIndex].classList.add('active');
-    this.dots[this.currentIndex].classList.add('active');
+    this.navigationDots[this.currentIndex].classList.add('active');
   }
 }
 
-// Initialize news slider
+// Initialize the carousel when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  new NewsSlider('news-container').init();
+  new NewsCarousel('news-container').initialize();
 });

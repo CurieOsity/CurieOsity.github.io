@@ -1,27 +1,42 @@
-// Global variables
-const path_includes = "/assets/includes"
+// components-loader.js
+(() => {
+  'use strict';
 
-// Load header and footer with Promise-based approach
-const loadComponents = {
-  header: () => 
-    fetch(`${path_includes}/header.html`)
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header').outerHTML = data;
-      }),
+  // Configuration constants
+  const COMPONENTS_PATH = '/assets/includes';
+  const COMPONENT_IDS = {
+    HEADER: 'header',
+    FOOTER: 'footer'
+  };
 
-  footer: () =>
-    fetch(`${path_includes}/footer.html`)
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer').outerHTML = data;
+  /**
+   * Generic component loader function
+   * @param {string} componentName - Name of the component to load
+   * @returns {Promise<void>} Promise that resolves when component is loaded
+   */
+  const loadComponent = (componentName) => {
+    const targetElement = document.getElementById(COMPONENT_IDS[componentName.toUpperCase()]);
+    
+    if (!targetElement) {
+      return Promise.reject(new Error(`Target element for ${componentName} not found`));
+    }
+
+    return fetch(`${COMPONENTS_PATH}/${componentName}.html`)
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        return response.text();
       })
-};
+      .then(html => {
+        targetElement.outerHTML = html;
+      });
+  };
 
-// Export a promise that resolves when both are loaded
-window.componentsLoaded = Promise.all([
-  loadComponents.header(),
-  loadComponents.footer()
-]).catch(error => {
-  console.error('Component loading error:', error);
-});
+  // Auto-initialize on script load and expose promise
+  window.componentsLoaded = Promise.all([
+    loadComponent('header'),
+    loadComponent('footer')
+  ]).catch(error => {
+    console.error('Component loading error:', error);
+    throw error; // Re-throw to maintain error chain
+  });
+})();

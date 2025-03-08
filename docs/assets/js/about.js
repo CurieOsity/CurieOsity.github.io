@@ -1,94 +1,126 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const timelineTrack = document.getElementById('timelineTrack');
-    const modal = document.getElementById('eventModal');
-    const closeModal = document.querySelector('.close');
+// timeline.js - More descriptive filename reflecting its purpose
 
-    // Load timeline data
-    fetch('/assets/data/timeline.json')
-        .then(response => response.json())
-        .then(data => {
-            data.sort((a, b) => new Date(b.date) - new Date(a.date));
-            let currentYear = null;
+document.addEventListener('DOMContentLoaded', initializeTimeline);
 
-            timelineTrack.innerHTML = '';
+async function initializeTimeline() {
+    const timelineContainer = document.getElementById('timelineTrack'); // More descriptive name
+    const modal = new ModalController('#eventModal'); // Encapsulated modal logic
 
-            data.forEach((item, index) => {
-                if (item.type === 'year') {
-                    currentYear = item.year;
-                    createYearMarker(currentYear);
-                } else {
-                    createTimelineElement(item, currentYear, index);
-                }
-            });
-        })
-        .catch(console.error);
-
-    function createYearMarker(year) {
-        const yearMarker = document.createElement('div');
-        yearMarker.className = 'year-marker';
-        yearMarker.innerHTML = `
-            <div class="year-text">${year}</div>
-        `;
-        timelineTrack.appendChild(yearMarker);
+    try {
+        const timelineData = await fetchTimelineData();
+        renderTimeline(timelineData, timelineContainer, modal);
+    } catch (error) {
+        console.error('Failed to initialize timeline:', error);
+        timelineContainer.innerHTML = '<div class="error">Failed to load timeline</div>';
     }
+}
 
-    function createTimelineElement(event, year, index) {
-        const element = document.createElement('div');
-        element.className = 'timeline-element';
-        element.innerHTML = `
-            <div class="event-dot"></div>
-            ${event.image ? 
-                `<img src="${event.image}" alt="${event.title}" class="event-image">` : 
-                '<div class="event-icon">📅</div>'}
-            <div class="event-date">${new Date(event.date).toLocaleDateString('fr-FR', { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-            })}</div>
-            <div class="event-title">${event.title}</div>
+// Data handling
+async function fetchTimelineData() {
+    const response = await fetch('/assets/data/timeline.json');
+    const data = await response.json();
+    return data.sort((a, b) => new Date(b.date) - new Date(a.date));
+}
 
-        `;
+// Rendering
+function renderTimeline(data, container, modal) {
+    container.innerHTML = '';
+    let currentYear = null;
 
-        element.addEventListener('click', () => showEventDetails(event));
-        timelineTrack.appendChild(element);
-    }
-
-    function showEventDetails(event) {
-        const modalContent = document.getElementById('modalContent');
-        modalContent.innerHTML = '<div class="loader">Chargement...</div>';
-        modal.classList.add('visible');
-
-        fetch(event.markdownFile)
-            .then(response => response.text())
-            .then(md => {
-                const content = marked.parse(md);
-                modalContent.innerHTML = `
-                    <div class="modal-header ${event.template || ''}">
-                        <h2>${event.title}</h2>
-                        <div class="event-date">
-                            ${new Date(event.date).toLocaleDateString('fr-FR', { 
-                                year: 'numeric', 
-                                month: 'long', 
-                                day: 'numeric' 
-                            })}
-                        </div>
-                    </div>
-                    <div class="modal-body ${event.template || ''}">${content}</div>
-                `;
-            })
-            .catch(() => {
-                modalContent.innerHTML = 'Erreur de chargement du contenu';
-            });
-    }
-
-    // Modal controls
-    closeModal.addEventListener('click', () => {
-        modal.classList.remove('visible');
-    });
-
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.remove('visible');
+    data.forEach((item, index) => {
+        if (item.type === 'year') {
+            currentYear = item.year;
+            container.appendChild(createYearMarker(currentYear));
+        } else {
+            container.appendChild(createTimelineItem(item, currentYear, index, modal));
         }
     });
-});
+}
+
+function createYearMarker(year) {
+    const marker = document.createElement('div');
+    marker.className = 'year-marker';
+    marker.innerHTML = `<div class="year-text">${year}</div>`;
+    return marker;
+}
+
+function createTimelineItem(event, year, index, modal) {
+    const item = document.createElement('div');
+    item.className = 'timeline-element';
+    item.innerHTML = `
+        <div class="event-dot"></div>
+        ${getEventVisual(event)}
+        <div class="event-date">${formatFrenchDate(event.date)}</div>
+        <div class="event-title">${event.title}</div>
+    `;
+    
+    item.addEventListener('click', () => modal.showEvent(event));
+    return item;
+}
+
+// Helpers
+function getEventVisual(event) {
+    return event.image 
+        ? `<img src="${event.image}" alt="${event.title}" class="event-image">`
+        : '<div class="event-icon">📅</div>';
+}
+
+function formatFrenchDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('fr-FR', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+}
+
+// Modal controller class
+class ModalController {
+    constructor(selector) {
+        this.modal = document.querySelector(selector);
+        this.content = this.modal.querySelector('#modalContent');
+        this.closeButton = this.modal.querySelector('.close');
+        
+        this.initializeEventListeners();
+    }
+
+    initializeEventListeners() {
+        this.closeButton.addEventListener('click', () => this.hide());
+        window.addEventListener('click', (e) => {
+            if (e.target === this.modal) this.hide();
+        });
+    }
+
+    async showEvent(event) {
+        this.modal.classList.add('visible');
+        this.content.innerHTML = '<div class="loader">Chargement...</div>';
+
+        try {
+            const content = await this.fetchModalContent(event.markdownFile);
+            this.renderContent(event, content);
+        } catch (error) {
+            this.content.innerHTML = 'Erreur de chargement du contenu';
+            console.error('Failed to load modal content:', error);
+        }
+    }
+
+    async fetchModalContent(url) {
+        const response = await fetch(url);
+        const md = await response.text();
+        return marked.parse(md);
+    }
+
+    renderContent(event, parsedMarkdown) {
+        this.content.innerHTML = `
+            <div class="modal-header ${event.template ?? ''}">
+                <h2>${event.title}</h2>
+                <div class="event-date">${formatFrenchDate(event.date)}</div>
+            </div>
+            <div class="modal-body ${event.template ?? ''}">${parsedMarkdown}</div>
+        `;
+    }
+
+    hide() {
+        this.modal.classList.remove('visible');
+    }
+}
