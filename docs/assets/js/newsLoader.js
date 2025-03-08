@@ -1,12 +1,13 @@
 // Global variables:
 const path_news = "/assets/data/news.md"
 
-// Code
 class NewsSlider {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
     this.currentIndex = 0;
     this.slides = [];
+    this.dots = [];
+    this.captions = [];
   }
 
   async init() {
@@ -16,6 +17,7 @@ class NewsSlider {
       const markdownContent = await this.fetchNewsContent();
       const events = this.parseMarkdown(markdownContent);
       this.createSliderStructure(events);
+      this.initEventListeners();
     } catch (error) {
       console.error('News loading error:', error);
       this.container.remove();
@@ -66,6 +68,7 @@ class NewsSlider {
     `;
     return card;
   }
+
   appendContent(card, element) {
     const content = card.querySelector('.event-content');
     if (element.nodeName === 'UL') {
@@ -76,54 +79,91 @@ class NewsSlider {
   }
 
   createSliderStructure(events) {
-    const sliderWrapper = document.createElement('div');
-    sliderWrapper.className = 'slider-wrapper';
+    const carousel = document.createElement('div');
+    carousel.className = 'project-carousel';
+    
+    const carouselFooter = document.createElement('div');
+    carouselFooter.className = 'carousel-footer';
+    
+    const controls = document.createElement('div');
+    controls.className = 'carousel-controls';
+    
+    this.prevBtn = this.createControlButton('prev');
+    this.nextBtn = this.createControlButton('next');
+    this.dotsContainer = document.createElement('div');
+    this.dotsContainer.className = 'carousel-dots';
 
-    const sliderContent = document.createElement('div');
-    sliderContent.className = 'slider-content';
-
+    controls.appendChild(this.prevBtn);
+    controls.appendChild(this.dotsContainer);
+    controls.appendChild(this.nextBtn);
+    
+    carouselFooter.appendChild(controls);
+    
+    const carouselImages = document.createElement('div');
+    carouselImages.className = 'carousel-images';
+    
     events.forEach((event, index) => {
-      const slide = document.createElement('div');
-      slide.className = `slide ${index === 0 ? 'active' : ''}`;
-      slide.appendChild(event);
-      sliderContent.appendChild(slide);
+      const container = document.createElement('div');
+      container.className = `carousel-item-container ${index === 0 ? 'active' : ''}`;
+      container.appendChild(event);
+      carouselImages.appendChild(container);
+
+      const dot = document.createElement('div');
+      dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+      dot.addEventListener('click', () => this.updateSlide(index));
+      this.dots.push(dot);
+      this.dotsContainer.appendChild(dot);
     });
 
-    sliderWrapper.appendChild(sliderContent);
-    sliderWrapper.appendChild(this.createNavigationButtons());
-    this.container.appendChild(sliderWrapper);
-    this.slides = Array.from(sliderContent.children);
+    carousel.appendChild(carouselImages);
+    carousel.appendChild(carouselFooter);
+    this.container.appendChild(carousel);
+    this.slides = Array.from(carouselImages.children);
   }
 
-  createNavigationButtons() {
-    const fragment = document.createDocumentFragment();
+  createControlButton(type) {
+    const btn = document.createElement('button');
+    btn.className = `carousel-${type}`;
+    btn.setAttribute('aria-label', `${type === 'prev' ? 'Previous' : 'Next'} slide`);
+    btn.innerHTML = `<i class="fas fa-chevron-${type === 'prev' ? 'left' : 'right'}"></i>`;
+    btn.addEventListener('click', () => 
+      this.updateSlide(this.currentIndex + (type === 'prev' ? -1 : 1))
+    );
+    return btn;
+  }
+
+  initEventListeners() {
+    // Touch events
+    let touchStartX = 0;
+    this.container.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    });
     
-    const prevBtn = document.createElement('button');
-    prevBtn.className = 'slider-nav prev';
-    prevBtn.innerHTML = '❮';
-    prevBtn.addEventListener('click', () => this.navigate(-1));
+    this.container.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        this.updateSlide(diff > 0 ? this.currentIndex + 1 : this.currentIndex - 1);
+      }
+    });
 
-    const nextBtn = document.createElement('button');
-    nextBtn.className = 'slider-nav next';
-    nextBtn.innerHTML = '❯';
-    nextBtn.addEventListener('click', () => this.navigate(1));
-
-    fragment.appendChild(prevBtn);
-    fragment.appendChild(nextBtn);
-    return fragment;
+    // Keyboard events
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') this.updateSlide(this.currentIndex - 1);
+      if (e.key === 'ArrowRight') this.updateSlide(this.currentIndex + 1);
+    });
   }
 
-  navigate(direction) {
-    const newIndex = this.currentIndex + direction;
-    if (newIndex >= 0 && newIndex < this.slides.length + 1) {
-      this.currentIndex = newIndex;
-      this.updateSliderPosition();
-    }
-  }
-
-  updateSliderPosition() {
-    this.container.querySelector('.slider-content').style.transform = 
-      `translateX(-${this.currentIndex * 100}%)`;
+  updateSlide(newIndex) {
+    newIndex = (newIndex + this.slides.length) % this.slides.length;
+    
+    this.slides[this.currentIndex].classList.remove('active');
+    this.dots[this.currentIndex].classList.remove('active');
+    
+    this.currentIndex = newIndex;
+    
+    this.slides[this.currentIndex].classList.add('active');
+    this.dots[this.currentIndex].classList.add('active');
   }
 }
 
