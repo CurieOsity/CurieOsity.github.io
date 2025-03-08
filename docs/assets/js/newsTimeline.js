@@ -1,5 +1,3 @@
-// timeline.js - Renamed to better reflect functionality
-
 document.addEventListener('DOMContentLoaded', async () => {
     const timelineContainer = document.getElementById('timelineTrack'); // More descriptive variable name
     

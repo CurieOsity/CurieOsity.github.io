@@ -33,7 +33,7 @@ class DynamicContentManager {
    */
   async loadContentData() {
     try {
-      const response = await fetch(`${MAIN_DATA_PATH}/main_page.json`);
+      const response = await fetch(`${MAIN_DATA_PATH}/dynamicContentManager.json`);
       const data = await response.json();
       this.greetings = data.greetings || [];
       this.backgrounds = data.backgrounds || [];

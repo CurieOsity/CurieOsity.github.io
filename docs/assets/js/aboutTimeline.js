@@ -1,5 +1,3 @@
-// timeline.js - More descriptive filename reflecting its purpose
-
 document.addEventListener('DOMContentLoaded', initializeTimeline);
 
 async function initializeTimeline() {
