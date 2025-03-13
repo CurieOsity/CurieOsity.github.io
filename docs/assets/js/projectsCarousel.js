@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 async function loadProjects(container) {
     try {
-        const response = await fetch('/assets/data/projectsCarousel.json');
+        const response = await fetch('/assets/data/projects.json');
         const { projects } = await response.json();
         
         const projectSections = await Promise.all(
