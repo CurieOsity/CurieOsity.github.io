@@ -1,80 +1,99 @@
-async function fetchProducts() {
+// store.js - E-commerce product rendering and navigation logic
+
+/* Constants */
+const PRODUCTS_DATA_URL = '/assets/data/products.json';
+const STORE_CONTAINER_ID = 'store-container';
+const SCROLL_DELAY_MS = 100; // Allow time for DOM rendering after load
+
+/* Core Functions */
+async function loadAndRenderStore() {
   try {
-    const response = await fetch('/assets/data/products.json');
-    const data = await response.json();
-    renderProducts(data.products);
-    handleInitialHashScroll();
+    const products = await fetchProductsData();
+    renderStoreInterface(products);
+    handleInitialHashNavigation();
   } catch (error) {
-    console.error('Error loading products:', error);
-    document.getElementById('store-container').innerHTML = `
-      <p class="error-message">Échec du chargement des produits. Veuillez réessayer plus tard.</p>
-    `;
+    handleLoadingError(error);
   }
 }
 
-function handleInitialHashScroll() {
-  const hash = window.location.hash;
-  if (hash && window.location.pathname === "/store") {
-    const target = document.querySelector(hash);
-    if (target) {
-      setTimeout(() => {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
-    }
+async function fetchProductsData() {
+  const response = await fetch(PRODUCTS_DATA_URL);
+  const data = await response.json();
+  return data.products;
+}
+
+function renderStoreInterface(products) {
+  const container = document.getElementById(STORE_CONTAINER_ID);
+  const groupedProducts = groupProductsByCategory(products);
+  
+  container.innerHTML = ''; // Clear previous content
+  container.insertAdjacentHTML('afterbegin', createCategoryNavigationMenu(groupedProducts));
+  
+  Object.entries(groupedProducts).forEach(([category, items]) => {
+    container.insertAdjacentHTML('beforeend', createCategorySection(category, items));
+  });
+  
+  setupCategoryNavigation();
+}
+
+/* Navigation & Scrolling */
+function handleInitialHashNavigation() {
+  if (window.location.pathname !== "/store") return;
+  
+  const targetElement = getHashTargetElement();
+  if (targetElement) {
+    setTimeout(() => smoothScrollTo(targetElement), SCROLL_DELAY_MS);
   }
 }
 
-function handleCategoryNavigation() {
+function setupCategoryNavigation() {
   document.querySelectorAll('.category-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetUrl = new URL(link.href);
-      history.pushState(null, null, targetUrl.pathname + targetUrl.hash);
-      const target = document.querySelector(targetUrl.hash);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
+    link.addEventListener('click', handleCategoryClick);
   });
 }
 
-function renderProducts(products) {
-  const container = document.getElementById('store-container');
-  const groupedProducts = groupByCategory(products);
+function handleCategoryClick(event) {
+  event.preventDefault();
+  const targetUrl = new URL(event.currentTarget.href);
+  
+  history.pushState(null, null, targetUrl.pathname + targetUrl.hash);
+  const targetElement = getHashTargetElement(targetUrl.hash);
+  
+  if (targetElement) smoothScrollTo(targetElement);
+}
 
+/* DOM Helpers */
+function createCategoryNavigationMenu(groupedProducts) {
   const categories = Object.keys(groupedProducts);
-  const categoryMenu = createCategoryMenu(categories);
-  container.insertAdjacentHTML('afterbegin', categoryMenu);
-
-  categories.forEach(category => {
-    const sectionHTML = `
-      <div class="category-section" id="${category.toLowerCase()}">
-        <h2 class="product-category">${category}</h2>
-        ${groupedProducts[category].map(product => createProductCard(product)).join('')}
-      </div>
-    `;
-    container.insertAdjacentHTML('beforeend', sectionHTML);
-  });
-  handleCategoryNavigation();
+  const menuItems = categories.map(category => `
+    <a href="/store#${category.toLowerCase()}" class="category-link">${category}</a>
+  `).join('');
+  
+  return `
+    <nav class="category-nav">
+      <div class="category-menu">${menuItems}</div>
+    </nav>
+  `;
 }
 
-function groupByCategory(products) {
-  return products.reduce((acc, product) => {
-    acc[product.category] = acc[product.category] || [];
-    acc[product.category].push(product);
-    return acc;
-  }, {});
+function createCategorySection(category, products) {
+  return `
+    <div class="category-section" id="${category.toLowerCase()}">
+      <h2 class="product-category">${category}</h2>
+      ${products.map(createProductCard).join('')}
+    </div>
+  `;
 }
 
 function createProductCard(product) {
-  const colorsHTML = product.colors.map(color => `
+  const colorSwatches = product.colors.map(color => `
     <div class="color-swatch" style="background: ${color}"></div>
   `).join('');
 
   return `
     <article class="product-card">
       <h3 class="product-title">${product.title}</h3>
-      <div class="color-swatches">${colorsHTML}</div>
+      <div class="color-swatches">${colorSwatches}</div>
       <p class="product-description">${product.description}</p>
       <iframe class="store-iframe" 
               src="${product['url-store']}"
@@ -86,19 +105,28 @@ function createProductCard(product) {
   `;
 }
 
+/* Utilities */
+function groupProductsByCategory(products) {
+  return products.reduce((acc, product) => {
+    acc[product.category] = [...(acc[product.category] || []), product];
+    return acc;
+  }, {});
+}
 
-function createCategoryMenu(categories) {
-  const menuItems = categories.map(category => `
-    <a href="/store#${category.toLowerCase()}" class="category-link">${category}</a>
-  `).join('');
+function getHashTargetElement(hash = window.location.hash) {
+  return hash ? document.querySelector(hash) : null;
+}
 
-  return `
-    <nav class="category-nav">
-      <div class="category-menu">
-        ${menuItems}
-      </div>
-    </nav>
+function smoothScrollTo(element) {
+  element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function handleLoadingError(error) {
+  console.error('Error loading products:', error);
+  document.getElementById(STORE_CONTAINER_ID).innerHTML = `
+    <p class="error-message">Échec du chargement des produits. Veuillez réessayer plus tard.</p>
   `;
 }
 
-document.addEventListener('DOMContentLoaded', fetchProducts);
+/* Initialization */
+document.addEventListener('DOMContentLoaded', loadAndRenderStore);
