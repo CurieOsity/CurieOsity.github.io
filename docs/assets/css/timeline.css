@@ -100,9 +100,7 @@
 /* Event Content Styling */
 .event-image {
   width: 100%;
-  max-height: 250px;
-  object-fit: cover;
-  border-radius: 8px;
+  border-radius: var(--big-radius);
   margin-bottom: 1rem;
 }
 
@@ -153,10 +151,7 @@
 
 /* ======================
    RESPONSIVE ADJUSTMENTS
-   ====================== */
-/* ======================
-   RESPONSIVE ADJUSTMENTS
-   ====================== */
+  ====================== */
 @media (max-width: 768px) {
   .timeline-track {
     padding: 1rem 0;

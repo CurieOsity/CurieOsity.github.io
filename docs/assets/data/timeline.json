@@ -1,10 +1,37 @@
 [
     {"type": "year", "year": 2025},
     {"type": "year", "year": 2024},
+    {
+        "type": "event",
+        "title": "Bureau 2024",
+        "date": "2024-10-10",
+        "image": "/assets/data/events-pics/Bureau_2024.jpg",
+        "shortDescription": "Élections du bureau 2024 - 2025",
+        "markdownFile": "/assets/data/events/Bureau_2024.md",
+        "template": "bureau"
+    },
     {"type": "year", "year": 2023},
+    {
+        "type": "event",
+        "title": "Bureau 2023",
+        "date": "2023-10-10",
+        "image": "/assets/data/events-pics/Bureau_2023.avif",
+        "shortDescription": "Élections du bureau 2023 - 2022",
+        "markdownFile": "/assets/data/events/Bureau_2023.md",
+        "template": "bureau"
+    },
     {"type": "year", "year": 2022},
     {"type": "year", "year": 2021},
     {"type": "year", "year": 2020},
+    {
+        "type": "event",
+        "title": "Bureau 2019",
+        "date": "2019-10-10",
+        "image": "/assets/data/events-pics/Bureau_2019.jpg",
+        "shortDescription": "Élections du bureau 2019 - 2020",
+        "markdownFile": "/assets/data/events/Bureau_2019.md",
+        "template": "bureau"
+    },
     {"type": "year", "year": 2019},
     {"type": "year", "year": 2018},
     {"type": "year", "year": 2017},
@@ -17,7 +44,7 @@
         "image": "/assets/data/events-pics/fondation.jpg",
         "shortDescription": "Création officielle de CurieOsity",
         "markdownFile": "/assets/data/events/fondation.md",
-        "template": "election"
+        "template": "fondation"
     },
     {"type": "year", "year": 2014}
 ]
