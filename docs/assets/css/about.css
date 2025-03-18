@@ -35,10 +35,10 @@
 
 /* Modal Styles */
 .modal {
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(3px);
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--glass);
   position: fixed;
   display: none;
   z-index: 9999;
@@ -53,29 +53,27 @@
 }
 
 .modal-content {
-  border-radius: 16px;
+  border-radius: var(--big-radius);
+  backdrop-filter: blur(7px);
   background: var(--glass);
   max-height: 80vh;
   overflow-y: auto;
-  max-width: 600px;
+  max-width: 850px;
   position: relative;
-  position: relative;
-  overflow: visible;
+  overflow: hidden;
   padding: 2rem;
-  border: 1px solid var(--border);
   width: 90%;
+  padding: 0;
 }
 
 /* Modal Enhancements */
 .modal-header {
-  border-radius: 16px 16px 0 0;
+  border-radius: var(--big-radius) var(--big-radius) 0 0;
   background: var(--accent);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   padding: 1.5rem;
-  margin: -2rem -2rem 2rem;
+  margin: 0;
   color: var(--accent-bg);
-  top: -1.6rem;
 }
 
 

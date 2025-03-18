@@ -77,13 +77,11 @@ class ModalController {
     constructor(selector) {
         this.modal = document.querySelector(selector);
         this.content = this.modal.querySelector('#modalContent');
-        this.closeButton = this.modal.querySelector('.close');
         
         this.initializeEventListeners();
     }
 
     initializeEventListeners() {
-        this.closeButton.addEventListener('click', () => this.hide());
         window.addEventListener('click', (e) => {
             if (e.target === this.modal) this.hide();
         });
@@ -105,7 +103,12 @@ class ModalController {
     async fetchModalContent(url) {
         const response = await fetch(url);
         const md = await response.text();
-        return marked.parse(md);
+        return marked.parse(md, {
+            gfm: true,
+            breaks: true,
+            headerIds: false,
+            sanitize: false
+        });
     }
 
     renderContent(event, parsedMarkdown) {

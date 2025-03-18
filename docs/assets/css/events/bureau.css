@@ -1,0 +1,39 @@
+.modal-body.bureau {
+    height: 60vh;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Colonnes responsives */
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-body.bureau div.member-card:nth-child(odd){
+    grid-column: 1;
+}
+
+.modal-body.bureau div.member-card:nth-child(even){
+    grid-column: 2;
+}
+
+.modal-body.bureau div.member-card:last-child:nth-child(odd){
+    grid-column:  1 / -1;
+    width: 50%;
+    margin: auto;
+}
+
+.member-card h3 {
+    color: var(--accent);
+    text-align: center;
+    size: 4rem;
+}
+
+.member-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.member-card p {
+    text-align: center;
+}
