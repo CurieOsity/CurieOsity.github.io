@@ -44,7 +44,7 @@ function createYearMarker(year) {
 
 function createTimelineItem(event, year, index, modal) {
     const item = document.createElement('div');
-    item.className = 'timeline-element';
+    item.className =`timeline-element ${event.template ?? ''}`;
     item.innerHTML = `
         <div class="event-dot"></div>
         ${getEventVisual(event)}

@@ -1,10 +1,14 @@
+.timeline-element.bureau img { 
+    border-radius: 50%;
+}
+
 .modal-body.bureau {
     height: 60vh;
     overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Colonnes responsives */
     gap: 2rem;
-    padding: 0;
+    padding: 2rem;
     margin: 0;
 }
 
@@ -25,7 +29,7 @@
 .member-card h3 {
     color: var(--accent);
     text-align: center;
-    size: 4rem;
+    font-size: 2rem;
 }
 
 .member-card img {
@@ -36,4 +40,5 @@
 
 .member-card p {
     text-align: center;
+    font-size: 1.2rem;
 }

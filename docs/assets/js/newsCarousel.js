@@ -4,8 +4,8 @@
 const NEWS_MARKDOWN_PATH = "/assets/data/news.md";
 
 class NewsCarousel {
-  constructor(containerId) {
-    this.container = document.getElementById(containerId);
+  constructor(containerClass) {
+    this.container = document.getElementsByClassName(containerClass)[0];
     this.currentIndex = 0;
     this.slides = [];
     this.navigationDots = [];
@@ -67,16 +67,14 @@ class NewsCarousel {
     }
 
     const cardTemplate = `
-      <div class="news-card">
         <div class="event-date-title">
           <h4 class="date">${dateTitleMatch[1]}<h4>
           <h3>${dateTitleMatch[2]}</h3>
         </div>
         <div class="event-content"></div>
-      </div>
     `;
     
-    return new DOMParser().parseFromString(cardTemplate, 'text/html').body.firstChild;
+    return new DOMParser().parseFromString(cardTemplate, 'text/html');
   }
 
   /** Appends content to a news card */
@@ -89,25 +87,25 @@ class NewsCarousel {
   /** Builds the carousel DOM structure */
   createCarouselStructure(events) {
     const carousel = this.createCarouselSkeleton();
-    this.createSlidesAndDots(events, carousel.imagesContainer);
+    this.createSlidesAndDots(events, carousel.newsContainer);
     this.container.appendChild(carousel.mainElement);
-    this.slides = Array.from(carousel.imagesContainer.children);
+    this.slides = Array.from(carousel.newsContainer.children);
   }
 
   /** Creates basic carousel structure elements */
   createCarouselSkeleton() {
     const elements = {
       mainElement: document.createElement('div'),
-      imagesContainer: document.createElement('div'),
+      newsContainer: document.createElement('div'),
       footer: document.createElement('div'),
     };
 
-    elements.mainElement.className = 'project-carousel';
-    elements.imagesContainer.className = 'carousel-images';
+    elements.mainElement.className = 'carousel';
+    elements.newsContainer.className = 'carousel-news';
     elements.footer.className = 'carousel-footer';
     elements.footer.appendChild(this.createControlElements());
 
-    elements.mainElement.append(elements.imagesContainer, elements.footer);
+    elements.mainElement.append(elements.newsContainer, elements.footer);
     return elements;
   }
 
@@ -141,8 +139,8 @@ class NewsCarousel {
   createSlidesAndDots(events, container) {
     events.forEach((event, index) => {
       const slideWrapper = document.createElement('div');
-      slideWrapper.className = `carousel-item-container ${index === 0 ? 'active' : ''}`;
-      slideWrapper.appendChild(event);
+      slideWrapper.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+      slideWrapper.append(...event.body.children);
       container.appendChild(slideWrapper);
 
       const dot = document.createElement('div');
@@ -204,5 +202,5 @@ class NewsCarousel {
 
 // Initialize the carousel when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  new NewsCarousel('news-container').initialize();
+  new NewsCarousel('hero').initialize();
 });

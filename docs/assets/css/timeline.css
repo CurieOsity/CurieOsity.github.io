@@ -51,13 +51,13 @@
 }
 
 /* Odd elements (left side) */
-.timeline-element:nth-child(odd) {
+:nth-child(odd of .timeline-element) {
   margin-right: var(--offset); /* Pushes element to left side */
   align-self: flex-start;
 }
 
 /* Even elements (right side) */
-.timeline-element:nth-child(even) {
+:nth-child(even of .timeline-element) {
   margin-left: var(--offset); /* Pushes element to right side */
   align-self: flex-end;
 }
@@ -74,11 +74,11 @@
 }
 
 /* Dynamic dot positioning based on element width */
-.timeline-element:nth-child(odd) .event-dot {
+:nth-child(odd of .timeline-element) .event-dot {
   right: calc(-1 * (var(--element-width) / 2 - 10px));
 }
 
-.timeline-element:nth-child(even) .event-dot {
+:nth-child(even of .timeline-element) .event-dot {
   left: calc(-1 * (var(--element-width) / 2 - 10px));
 }
 
@@ -163,8 +163,8 @@
   }
 
   .timeline-element,
-  .timeline-element:nth-child(odd),
-  .timeline-element:nth-child(even) {
+  :nth-child(odd of .timeline-element),
+  :nth-child(even of .timeline-element) {
     width: calc(100% - 40px); /* Explicit width calculation */
     margin: 0 0 2rem 0 !important; /* Keep important for margin override */
     align-self: flex-start;
