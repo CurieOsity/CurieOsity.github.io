@@ -1,26 +1,20 @@
-.logo-theme {
-  display: none;
-  margin: auto;
-  height: 100%;
-  width: auto;
-}
-
 /* About Hero Section */
 .about-hero {
-  position: relative;
-  min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 5%;
+  padding: 1rem 0;
   text-align: center;
-  background: linear-gradient(45deg, var(--glass) 0%, var(--bg) 100%);
+  justify-content: center;
+  min-height: calc(100vh - var(--header-height));
 }
 
 .about-hero .text-container {
   max-width: 800px;
   position: relative;
   z-index: 2;
+}
+.about-hero .logo-container {
+    height: 200px;
+    margin: 0 auto 2rem;
 }
 
 .about-hero h1 {

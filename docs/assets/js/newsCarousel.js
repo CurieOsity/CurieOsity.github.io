@@ -3,6 +3,16 @@
 // Constants
 const NEWS_MARKDOWN_PATH = "/assets/data/news.md";
 
+
+function formatFrenchDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('fr-FR', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+}
+
 class NewsCarousel {
   constructor(containerClass) {
     this.container = document.getElementsByClassName(containerClass)[0];
@@ -68,7 +78,7 @@ class NewsCarousel {
 
     const cardTemplate = `
         <div class="event-date-title">
-          <h4 class="date">${dateTitleMatch[1]}<h4>
+          <h4 class="date">${formatFrenchDate(dateTitleMatch[1])}<h4>
           <h3>${dateTitleMatch[2]}</h3>
         </div>
         <div class="event-content"></div>

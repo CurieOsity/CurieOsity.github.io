@@ -162,7 +162,7 @@ main {
 
 .carousel-news {
   width: 100%;
-  height: 50vh;
+  height: 40vh;
   position: relative;
 }
 
@@ -191,7 +191,7 @@ main {
 }
 
 .carousel-item.active:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
 }
 
 .carousel-controls {
