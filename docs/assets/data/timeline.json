@@ -4,8 +4,8 @@
     {
         "type": "event",
         "title": "Bureau 2024",
-        "date": "2024-10-10",
-        "image": "/assets/data/events-pics/Bureau_2024.jpg",
+        "date": "2024-09-20",
+        "image": "/assets/data/events-pics/Bureau_2024.avif",
         "shortDescription": "Élections du bureau 2024 - 2025",
         "markdownFile": "/assets/data/events/Bureau_2024.md",
         "template": "bureau"
@@ -14,22 +14,40 @@
     {
         "type": "event",
         "title": "Bureau 2023",
-        "date": "2023-10-10",
+        "date": "2023-09-20",
         "image": "/assets/data/events-pics/Bureau_2023.avif",
         "shortDescription": "Élections du bureau 2023 - 2022",
         "markdownFile": "/assets/data/events/Bureau_2023.md",
         "template": "bureau"
     },
     {"type": "year", "year": 2022},
+    {
+        "type": "event",
+        "title": "Bureau 2022",
+        "date": "2022-09-20",
+        "image": "/assets/data/events-pics/Bureau_2022.avif",
+        "shortDescription": "Élections du bureau 2022 - 2023",
+        "markdownFile": "/assets/data/events/Bureau_2022.md",
+        "template": "bureau"
+    },
     {"type": "year", "year": 2021},
+    {
+        "type": "event",
+        "title": "Bureau 2021",
+        "date": "2021-09-20",
+        "image": "/assets/data/events-pics/Bureau_2021.avif",
+        "shortDescription": "Élections du bureau 2021 - 2022",
+        "markdownFile": "/assets/data/events/Bureau_2021.md",
+        "template": "bureau"
+    },
     {"type": "year", "year": 2020},
     {
         "type": "event",
-        "title": "Bureau 2019",
-        "date": "2019-10-10",
-        "image": "/assets/data/events-pics/Bureau_2019.jpg",
-        "shortDescription": "Élections du bureau 2019 - 2020",
-        "markdownFile": "/assets/data/events/Bureau_2019.md",
+        "title": "Bureau 2020",
+        "date": "2020-09-20",
+        "image": "/assets/data/events-pics/Bureau_2020.avif",
+        "shortDescription": "Élections du bureau 2020 - 2021",
+        "markdownFile": "/assets/data/events/Bureau_2020.md",
         "template": "bureau"
     },
     {"type": "year", "year": 2019},
@@ -37,6 +55,7 @@
     {"type": "year", "year": 2017},
     {"type": "year", "year": 2016},
     {"type": "year", "year": 2015},
+    {"type": "year", "year": 2014},
     {
         "type": "event",
         "title": "Fondation de l'association",
@@ -45,6 +64,5 @@
         "shortDescription": "Création officielle de CurieOsity",
         "markdownFile": "/assets/data/events/fondation.md",
         "template": "fondation"
-    },
-    {"type": "year", "year": 2014}
+    }
 ]
