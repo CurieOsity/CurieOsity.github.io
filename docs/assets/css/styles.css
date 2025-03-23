@@ -1,0 +1,315 @@
+/* ========================
+       CSS Variables
+   ======================== */
+:root {
+  /* Layout Constants */
+  --header-height: 6rem;
+  --max-width: 1200px;
+  --big-radius: 16px;
+
+  /* Interaction Constants */
+  --inflate: scale(1.2);
+  --transition-time: 0.3s;
+
+  /* Dark Theme */
+  --border-dark: rgba(255, 255, 255, 0.2);
+  --glass-dark: rgba(10, 10, 10, 0.3);
+  --text-dark: rgba(255, 255, 255, 1);
+  --bg-dark: rgba(10, 10, 10, 1);
+  
+  /* Light Theme */
+  --border-light: rgba(0, 0, 0, 0.2);
+  --glass-light: rgba(215, 215, 215, 0.3);
+  --text-light: rgba(0, 0, 0, 1);
+  --bg-light: rgba(215, 215, 215, 1);
+  
+  /* Accent Colors */
+  --accent-bg: rgba(255, 255, 255, 1);
+  --accent: rgba(155, 39, 176, 1);
+}
+
+/* ========================
+      Theme Management
+   ======================== */
+[data-theme="dark"] {
+  --border-color: var(--border-dark);
+  --border: 1px solid var(--border-dark);
+  --glass: var(--glass-dark);
+  --text: var(--text-dark);
+  --bg: var(--bg-dark);
+}
+
+[data-theme="light"] {
+  --border-color: var(--border-light);
+  --border: 1px solid var(--border-light);
+  --glass: var(--glass-light);
+  --text: var(--text-light);
+  --bg: var(--bg-light);
+}
+
+/* Theme-sensitive images */
+.img-dark, .img-light { display: none; }
+[data-theme="dark"] .img-dark,
+[data-theme="light"] .img-light { display: inherit; }
+
+/* ========================
+      Base Styles
+   ======================== */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent); /* Fixed syntax error (was = instead of :) */
+  text-decoration: none;
+}
+
+main {
+  padding-top: var(--header-height);
+}
+
+/* ========================
+      Navigation System
+   ======================== */
+/* Main Nav Container */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: var(--header-height);
+  padding: 0 5%;
+  gap: 2rem;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border-bottom: var(--border);
+}
+
+/* Logo Styles (preserved dimensions) */
+.logo {
+  height: 5.5rem;
+  width: 10rem;
+  margin: auto 0;
+  padding: 0;
+}
+
+.logo-theme {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  position: relative;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  color: var(--text);
+  border-radius: 8px;
+  transition: all var(--transition-time) ease;
+}
+
+/* Link Hover Effects */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width var(--transition-time) ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ========================
+      Mobile Navigation
+   ======================== */
+.hamburger {
+  display: none;
+  position: fixed;
+  right: calc(5% + 5px);
+  top: 1.5rem;
+  z-index: 1002;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  margin-left: auto;
+}
+
+/* Responsive Nav Layout */
+@media (max-width: 950px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    padding: 0.5rem 5%;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border-bottom: var(--border);
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+    animation: slideDown 0.3s ease-out;
+  }
+
+  .nav-links.closing {
+    animation: slideUp 0.3s ease-out forwards;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* ========================
+      Theme Toggle
+   ======================== */
+.theme-toggle {
+  position: fixed;
+  right: calc(5% + 50px);
+  top: 1.5rem;
+  z-index: 1001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  padding: 0.75rem;
+  border: var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--transition-time) ease;
+}
+
+.theme-toggle:hover {
+  transform: var(--inflate);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+/* ========================
+      Component Library
+   ======================== */
+/* Big Button */
+.big-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 1.2rem 2.5rem;
+  margin-top: 1.5rem;
+  border: 2px solid transparent;
+  border-radius: var(--big-radius);
+  background: var(--accent);
+  color: var(--text);
+  font-weight: 600;
+  gap: 0.8rem;
+  transition: all var(--transition-time) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.big-button:hover {
+  transform: translateY(-2px);
+  background: transparent;
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 8px 24px var(--accent);
+}
+
+/* Big Link */
+.big-link {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  color: var(--accent);
+  font-size: 1.2rem;
+  border-radius: var(--big-radius);
+  transition: all var(--transition-time) ease;
+}
+
+.big-link:hover {
+  transform: var(--inflate) scale(0.9);
+  background-color: var(--accent);
+  color: var(--text);
+}
+
+/* ========================
+      Footer Styles
+   ======================== */
+footer {
+  padding: 3rem 5%;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border-top: var(--border);
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.social-links a {
+  color: var(--text);
+  font-size: 1.5rem;
+  transition: all var(--transition-time) ease;
+}
+
+.social-links a:hover {
+  transform: var(--inflate);
+  color: var(--accent);
+}
+
+/* ========================
+      Animation System
+   ======================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-20px); }
+}

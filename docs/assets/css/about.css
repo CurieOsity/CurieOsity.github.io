@@ -1,0 +1,123 @@
+/* About Hero Section */
+.about-hero {
+  display: flex;
+  padding: 1rem 0;
+  text-align: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--header-height));
+}
+
+.about-hero .text-container {
+  max-width: 800px;
+  position: relative;
+  z-index: 2;
+}
+.about-hero .logo-container {
+    height: 200px;
+    margin: 0 auto 2rem;
+}
+
+.about-hero h1 {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  color: var(--accent);
+}
+
+.hero-content p {
+  text-align: justify;
+}
+
+/* Modal Styles */
+.modal {
+  backdrop-filter: blur(3px);
+  justify-content: center;
+  align-items: center;
+  background: var(--glass);
+  position: fixed;
+  display: none;
+  z-index: 9999;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.modal.visible {
+  display: flex;
+}
+
+.modal-content {
+  border-radius: var(--big-radius);
+  backdrop-filter: blur(7px);
+  background: var(--glass);
+  max-height: 80vh;
+  overflow-y: auto;
+  max-width: 850px;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  width: 90%;
+  padding: 0;
+}
+
+/* Modal Enhancements */
+.modal-header {
+  border-radius: var(--big-radius) var(--big-radius) 0 0;
+  background: var(--accent);
+  position: relative;
+  padding: 1.5rem;
+  margin: 0;
+  color: var(--accent-bg);
+}
+
+
+.election-template .modal-header {
+  border-radius: 8px;
+  background: var(--accent);
+  padding: 1rem;
+  margin: -1rem -1rem 2rem;
+  color: var(--accent-bg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+}
+
+
+.modal-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-body {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.modal-body a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.modal-body a:hover {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+/* Loading Animation */
+.loader {
+  display: inline-block;
+  padding: 1rem 2rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+

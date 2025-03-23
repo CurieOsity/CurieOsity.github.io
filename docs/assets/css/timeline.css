@@ -1,0 +1,189 @@
+/* ======================
+   TIMELINE COMPONENT
+   ====================== */
+
+/* Core Timeline Structure */
+.timeline-section {
+  position: relative;
+  padding: 4rem 5%;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+}
+
+.timeline-container {
+  position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.timeline-track {
+  --vertical-line-position: 50%; /* CSS variable for line position */
+  position: relative;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Vertical Line Decorator */
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  left: var(--vertical-line-position);
+  width: 2px;
+  height: 100%;
+  background: var(--accent);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Timeline Elements - Shared Styles */
+.timeline-element {
+  --element-width: 40%; /* Base width relative to container */
+  --offset: calc((50% - (var(--element-width)/2))); /* Dynamic offset calculation */
+  
+  width: var(--element-width);
+  position: relative;
+  padding: 1.5rem;
+  background: var(--glass);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+/* Odd elements (left side) */
+:nth-child(odd of .timeline-element) {
+  margin-right: var(--offset); /* Pushes element to left side */
+  align-self: flex-start;
+}
+
+/* Even elements (right side) */
+:nth-child(even of .timeline-element) {
+  margin-left: var(--offset); /* Pushes element to right side */
+  align-self: flex-end;
+}
+
+/* Event Dot Positioning */
+.event-dot {
+  position: absolute;
+  top: 24px;
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: 50%;
+  border: 3px solid var(--bg);
+}
+
+/* Dynamic dot positioning based on element width */
+:nth-child(odd of .timeline-element) .event-dot {
+  right: calc(-1 * (var(--element-width) / 2 - 10px));
+}
+
+:nth-child(even of .timeline-element) .event-dot {
+  left: calc(-1 * (var(--element-width) / 2 - 10px));
+}
+
+/* Hover Effects */
+.timeline-element:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(155, 39, 176, 0.2);
+  border-color: var(--accent);
+}
+
+.timeline-element:hover .event-title {
+  color: var(--accent);
+}
+
+.timeline-element:hover .event-dot {
+  transform: var(--inflate);
+}
+
+/* Event Content Styling */
+.event-image {
+  width: 100%;
+  border-radius: var(--big-radius);
+  margin-bottom: 1rem;
+}
+
+.event-title,
+.event-date {
+  text-align: center;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.event-title { 
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.event-date {
+  font-size: 1.3rem;
+}
+
+.event-content {
+  padding: 1rem;
+}
+
+.event-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+/* Year Markers */
+.year-marker {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin: 3rem 0;
+  z-index: 3;
+}
+
+.year-text {
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  background: var(--accent);
+  color: var(--accent-bg);
+  border-radius: 24px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* ======================
+   RESPONSIVE ADJUSTMENTS
+  ====================== */
+@media (max-width: 768px) {
+  .timeline-track {
+    padding: 1rem 0;
+    gap: 2rem;
+  }
+
+  .timeline-track::before {
+    left: 20px; /* Direct value instead of variable */
+  }
+
+  .timeline-element,
+  :nth-child(odd of .timeline-element),
+  :nth-child(even of .timeline-element) {
+    width: calc(100% - 40px); /* Explicit width calculation */
+    margin: 0 0 2rem 0 !important; /* Keep important for margin override */
+    align-self: flex-start;
+  }
+
+  .event-dot {
+    left: -25px !important; /* Direct positioning */
+    right: auto !important;
+  }
+
+  .event-image {
+    max-height: 200px;
+  }
+
+  .event-title { font-size: 1.2rem; }
+  .event-date { font-size: 1.1rem; }
+
+  .year-text {
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+  }
+}
