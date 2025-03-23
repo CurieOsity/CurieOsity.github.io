@@ -5,7 +5,7 @@
         "type": "event",
         "title": "Bureau 2024",
         "date": "2024-09-20",
-        "image": "/assets/data/events-pics/Bureau_2024.avif",
+        "image": "/assets/data/events-pics/2024_Bureau.avif",
         "shortDescription": "Élections du bureau 2024 - 2025",
         "markdownFile": "/assets/data/events/Bureau_2024.md",
         "template": "bureau"
@@ -15,7 +15,7 @@
         "type": "event",
         "title": "Bureau 2023",
         "date": "2023-09-20",
-        "image": "/assets/data/events-pics/Bureau_2023.avif",
+        "image": "/assets/data/events-pics/2023_Bureau.avif",
         "shortDescription": "Élections du bureau 2023 - 2022",
         "markdownFile": "/assets/data/events/Bureau_2023.md",
         "template": "bureau"
@@ -25,7 +25,7 @@
         "type": "event",
         "title": "Bureau 2022",
         "date": "2022-09-20",
-        "image": "/assets/data/events-pics/Bureau_2022.avif",
+        "image": "/assets/data/events-pics/2022_Bureau.avif",
         "shortDescription": "Élections du bureau 2022 - 2023",
         "markdownFile": "/assets/data/events/Bureau_2022.md",
         "template": "bureau"
@@ -35,7 +35,7 @@
         "type": "event",
         "title": "Bureau 2021",
         "date": "2021-09-20",
-        "image": "/assets/data/events-pics/Bureau_2021.avif",
+        "image": "/assets/data/events-pics/2021_Bureau.avif",
         "shortDescription": "Élections du bureau 2021 - 2022",
         "markdownFile": "/assets/data/events/Bureau_2021.md",
         "template": "bureau"
@@ -45,7 +45,7 @@
         "type": "event",
         "title": "Bureau 2020",
         "date": "2020-09-20",
-        "image": "/assets/data/events-pics/Bureau_2020.avif",
+        "image": "/assets/data/events-pics/2020_Bureau.avif",
         "shortDescription": "Élections du bureau 2020 - 2021",
         "markdownFile": "/assets/data/events/Bureau_2020.md",
         "template": "bureau"
