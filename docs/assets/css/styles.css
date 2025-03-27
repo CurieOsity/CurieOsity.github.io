@@ -182,7 +182,7 @@ nav {
     left: 0;
     right: 0;
     flex-direction: column;
-    padding: 0.5rem 5%;
+    padding: 0;
     max-height: 70vh;
     overflow-y: auto;
     background: var(--glass);
@@ -191,6 +191,16 @@ nav {
     display: none;
   }
 
+  .nav-links a {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100vw;
+    position: relative;
+    font-weight: 500;
+    color: var(--text);
+    transition: all var(--transition-time) ease;
+    padding: 0 1rem;
+  }
   .nav-links.active {
     display: flex;
     animation: slideDown 0.3s ease-out;

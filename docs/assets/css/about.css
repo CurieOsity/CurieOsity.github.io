@@ -8,13 +8,15 @@
 }
 
 .about-hero .text-container {
-  max-width: 800px;
+  max-width: 1000px;
   position: relative;
   z-index: 2;
 }
-.about-hero .logo-container {
-    height: 200px;
-    margin: 0 auto 2rem;
+
+.about-hero .logo-container img {
+    height: 20vh;
+    width: auto; 
+    margin: 0 auto 1rem;
 }
 
 .about-hero h1 {
@@ -25,6 +27,9 @@
 
 .hero-content p {
   text-align: justify;
+  padding: 1rem 2rem;
+  size: 1rem;
+  line-height: 1.3rem;
 }
 
 /* Modal Styles */
