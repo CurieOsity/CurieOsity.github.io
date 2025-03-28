@@ -16,17 +16,17 @@
 
 <div class="member-card">
 
-  ### Trésorier
-  ![Hugo Sakislian](/assets/data/events-pics/2024_Hugo.avif)
-  *Hugo Sakislian*
+  ### Trésorièr
+  ![Chloé Dudouit](/assets/data/events-pics/2024_Chloé.avif)
+  *Chloé Dudouit*
 
 </div>
 
 <div class="member-card">
 
-  ### Vice Trésorière
-  ![Chloé Dudouit](/assets/data/events-pics/2024_Chloé.avif)
-  *Chloé Dudouit*
+  ### Vice Trésorier
+  ![Hugo Sakislian](/assets/data/events-pics/2024_Hugo.avif)
+  *Hugo Sakislian*
 
 </div>
 
