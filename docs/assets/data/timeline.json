@@ -53,7 +53,7 @@
         "type": "event",
         "title": "Fondation de l'association",
         "date": "2014-09-01",
-        "image": "/assets/data/events-pics/fondation.jpg",
+        "image": "/assets/data/events-pics/LoutreCurie.jpeg",
         "shortDescription": "Création officielle de CurieOsity",
         "markdownFile": "/assets/data/events/fondation.md",
         "template": "fondation"
