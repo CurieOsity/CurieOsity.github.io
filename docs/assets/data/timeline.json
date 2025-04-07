@@ -1,6 +1,5 @@
 [
-    {"type": "year", "year": 2025},
-    {"type": "year", "year": 2024},
+    {"type": "year", "year": 2024 - 2025},
     {
         "type": "event",
         "title": "Bureau 2024",
@@ -10,7 +9,7 @@
         "markdownFile": "/assets/data/events/Bureau_2024.md",
         "template": "bureau"
     },
-    {"type": "year", "year": 2023},
+    {"type": "year", "year": 2023 - 2024},
     {
         "type": "event",
         "title": "Bureau 2023",
@@ -20,7 +19,7 @@
         "markdownFile": "/assets/data/events/Bureau_2023.md",
         "template": "bureau"
     },
-    {"type": "year", "year": 2022},
+    {"type": "year", "year": 2022 - 2023},
     {
         "type": "event",
         "title": "Bureau 2022",
@@ -30,7 +29,7 @@
         "markdownFile": "/assets/data/events/Bureau_2022.md",
         "template": "bureau"
     },
-    {"type": "year", "year": 2021},
+    {"type": "year", "year": 2021 - 2022},
     {
         "type": "event",
         "title": "Bureau 2021",
@@ -40,7 +39,7 @@
         "markdownFile": "/assets/data/events/Bureau_2021.md",
         "template": "bureau"
     },
-    {"type": "year", "year": 2020},
+    {"type": "year", "year": 2020 - 2021},
     {
         "type": "event",
         "title": "Bureau 2020",
@@ -50,12 +49,6 @@
         "markdownFile": "/assets/data/events/Bureau_2020.md",
         "template": "bureau"
     },
-    {"type": "year", "year": 2019},
-    {"type": "year", "year": 2018},
-    {"type": "year", "year": 2017},
-    {"type": "year", "year": 2016},
-    {"type": "year", "year": 2015},
-    {"type": "year", "year": 2014},
     {
         "type": "event",
         "title": "Fondation de l'association",
