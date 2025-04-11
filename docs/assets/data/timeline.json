@@ -49,6 +49,12 @@
         "markdownFile": "/assets/data/events/Bureau_2020.md",
         "template": "bureau"
     },
+    {"type": "year", "year": 2019},
+    {"type": "year", "year": 2018},
+    {"type": "year", "year": 2017},
+    {"type": "year", "year": 2016},
+    {"type": "year", "year": 2015},
+    {"type": "year", "year": 2014},
     {
         "type": "event",
         "title": "Fondation de l'association",
