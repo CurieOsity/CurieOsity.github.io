@@ -16,7 +16,7 @@
 
 <div class="member-card">
 
-  ### Trésorièr
+  ### Trésorier
   ![Hugo Sakislian](/assets/data/events-pics/2025_Hugo.avif)
   *Hugo Sakislian*
 
