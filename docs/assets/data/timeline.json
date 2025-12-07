@@ -1,4 +1,14 @@
 [
+    {"type": "year", "year": 2025},
+    {
+        "type": "event",
+        "title": "Bureau 2025",
+        "date": "2025-09-25",
+        "image": "/assets/data/events-pics/2025_Bureau.avif",
+        "shortDescription": "Élections du bureau 2025 - 2026",
+        "markdownFile": "/assets/data/events/Bureau_2025.md",
+        "template": "bureau"
+    },
     {"type": "year", "year": 2024},
     {
         "type": "event",
