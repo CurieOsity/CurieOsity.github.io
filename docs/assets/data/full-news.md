@@ -13,17 +13,6 @@ La diffusion des sciences
 
 ---
 
-## 15/11/20XX - Conférence avec Hervé This
-[![Hervé This](/assets/data/conf-pressed/Hervé_This.avif)](/assets/CurieO/conf/Hervé_This.pdf)
-
-**Lieu**: Amphi 34A, campus jussieu
-
-**Début**: 18h30
-
-La gastronomie moléculaire continue de se développer dans le Monde
-
----
-
 ## 27/10/20XX - Conférence avec Serge Reynaud
 [![Serge Reynaud](/assets/data/conf-pressed/Serge_Reynaud.avif)](/assets/CurieO/conf/Serge_Reynaud.pdf)
 
@@ -35,7 +24,7 @@ Le Test du principe d'équivalence par le satellite microscope
 
 ---
 
-## 16/10/20XX - Conférence avec Franck Ramus
+## 16/10/2023 - Conférence avec Franck Ramus
 [![Franck Ramus](/assets/data/conf-pressed/Franck_Ramus.avif)](/assets/CurieO/conf/Franck_Ramus.pdf)
 
 **Lieu**: Amphi 44, campus jussieu
@@ -46,18 +35,7 @@ Apprendre à apprendre
 
 ---
 
-## 11/05/20XX - Conférence avec Francis Rocard
-[![Francis Rocard](/assets/data/conf-pressed/Francis_Rocard.avif)](/assets/CurieO/conf/Francis_rocard.jpeg)
-
-**Lieu**: Amphi 24, campus jussieu
-
-**Début**: 18h30
-
-L'homme sur Mars en passant par la Lune
-
----
-
-## 14/03/20XX - Conférence avec Françoise Combes
+## 14/03/2023 - Conférence avec Françoise Combes
 [![Françoise Combes](/assets/data/conf-pressed/Françoise_Combes.avif)](/assets/CurieO/conf/Françoise_Combes.jpeg)
 
 **Lieu**: Amphi 43, campus jussieu
@@ -68,16 +46,25 @@ L'ombre des trous noir
 
 ---
 
-## 02/03/20XX - Conférence avec Emeline Pouyet
-[![Emeline Pouyet](/assets/data/conf-pressed/Emeline_Pouyet.avif)](/assets/CurieO/conf/Emeline_Pouyet.pdf)
+## 15/11/2022 - Conférence avec Hervé This
+[![Hervé This](/assets/data/conf-pressed/Hervé_This.avif)](/assets/CurieO/conf/Hervé_This.pdf)
 
 **Lieu**: Amphi 34A, campus jussieu
 
 **Début**: 18h30
 
-Les œuvres d'art à la loupe :
+La gastronomie moléculaire continue de se développer dans le Monde
 
-Une étude multi-échelle des peintures historiques
+---
+
+## 11/05/2022 - Conférence avec Francis Rocard
+[![Francis Rocard](/assets/data/conf-pressed/Francis_Rocard.avif)](/assets/CurieO/conf/Francis_rocard.jpeg)
+
+**Lieu**: Amphi 24, campus jussieu
+
+**Début**: 18h30
+
+L'homme sur Mars en passant par la Lune
 
 ---
 
