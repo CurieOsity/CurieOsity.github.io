@@ -58,7 +58,7 @@ L'univers a-t-il vraiment eu un commencement ?
 ---
 
 ## 25/01/2024 - Conférence avec Sylvain David
-[![Sylvain David](/assets/data/conf-pressed/Sylvain-David.avif)](/assets/CurieO/conf/Sylvain-David.pdf)
+[![Sylvain David](/assets/data/conf-pressed/Sylvain_David.avif)](/assets/CurieO/conf/Sylvain_David.pdf)
 
 **Lieu**: Amphi 34A, campus Jussieu
 
