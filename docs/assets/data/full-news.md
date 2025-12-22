@@ -33,6 +33,41 @@ La diffusion des sciences
 
 ---
 
+## 27/11/2024 - Conférence avec Eleni Diamanti
+[![Eleni Diamanti](/assets/data/conf-pressed/Eleni_Diamanti.avif)](/assets/CurieO/conf/Eleni_Diamanti.pdf)
+
+**Lieu**: Amphi 45B, campus Jussieu
+
+**Début**: 18h30
+
+Les technologies quantiques :
+
+Concepts, avancées et perspectives
+
+---
+
+## 21/03/2024 - Conférence avec Jean-Marc Lévy-Leblond
+[![Jean-Marc Lévy-Leblond](/assets/data/conf-pressed/Jean-Marc_Levy-Leblond.avif)](/assets/CurieO/conf/Jean-Marc_Levy-Leblond.pdf)
+
+**Lieu**: Amphi 34A, campus Jussieu
+
+**Début**: 18h30
+
+L'univers a-t-il vraiment eu un commencement ?
+
+---
+
+## 21/03/2024 - Conférence avec Sylvain David
+[![Sylvain David](/assets/data/conf-pressed/Sylvain-David.avif)](/assets/CurieO/conf/Sylvain-David.pdf)
+
+**Lieu**: Amphi 34A, campus Jussieu
+
+**Début**: 18h30
+
+A quoi servent les réacteurs nucléaires du futur ?
+
+---
+
 ## 16/10/2023 - Conférence avec Franck Ramus
 [![Franck Ramus](/assets/data/conf-pressed/Franck_Ramus.avif)](/assets/CurieO/conf/Franck_Ramus.pdf)
 
