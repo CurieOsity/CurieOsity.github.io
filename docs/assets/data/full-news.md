@@ -1,5 +1,5 @@
 ## 15/10/2025 - Conférence avec Franck Laloë
-[![Franck Laloë](/asset/data/conf-pressed/Franck_Laloe.avif)](/assets/CurieO/conf/Martin_Turbet.pdf)
+[![Franck Laloë](/asset/data/conf-pressed/Franck_Laloe.avif)](/assets/CurieO/conf/Franck_Laloe.pdf)
 
 **Lieu**: Amphi Astier, campus Jussieu
 
