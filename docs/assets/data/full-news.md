@@ -1,3 +1,25 @@
+## 15/10/2025 - Conférence avec Franck Laloë
+[![Franck Laloë](/asset/data/conf-pressed/Franck_Laloe.avif)](/assets/CurieO/conf/Martin_Turbet.pdf)
+
+**Lieu**: Amphi Astier, campus Jussieu
+
+**Début** : 18h30
+
+Comprenons-nous vraiment la mécanique quantique ?
+
+---
+
+## 29/04/2025 - Conférence avec Martin Turbet
+[![Martin Turbet](/asset/data/conf-pressed/Martin_Turbet.avif)](/assets/CurieO/conf/Martin_Turbet.pdf)
+
+**Lieu**: Amphi 24, campus Jussieu
+
+**Début**: 18h30
+
+Cap sur les atmosphères d'exoplanètes similaires à la Terre
+
+---
+
 ## 13/03/2025 - Conférence avec David Louapre
 [![David Louapre](/assets/data/conf-pressed/David_Louapre.avif)](/assets/CurieO/conf/David_Louapre.pdf)
 
@@ -8,8 +30,6 @@
 Recherche, vulgarisation et jeux vidéo :
 
 La diffusion des sciences
-
-[Lien de l'inscription](https://www.helloasso.com/associations/curieosity/evenements/recherche-vulgarisation-et-jeux-video-diffusion-des-sciences-vers-la-societe)
 
 ---
 
@@ -31,7 +51,7 @@ Apprendre à apprendre
 
 **Début**: 18h30
 
-L'ombre des trous noir
+L'ombre des trous noirs
 
 ---
 
@@ -42,7 +62,7 @@ L'ombre des trous noir
 
 **Début**: 18h30
 
-La gastronomie moléculaire continue de se développer dans le Monde
+La gastronomie moléculaire continue de se développer dans le monde
 
 ---
 
@@ -80,5 +100,5 @@ Jean-Philippe Bouchaud est un théoricien de la physique statistique, fondateur 
 
 **Début**: 18h30
 
-Le Test du principe d'équivalence par le satellite microscope
+Le test du principe d'équivalence par le satellite microscope
 
