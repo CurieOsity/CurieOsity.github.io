@@ -1,5 +1,5 @@
 ## 15/10/2025 - Conférence avec Franck Laloë
-[![Franck Laloë](/asset/data/conf-pressed/Franck_Laloe.avif)](/assets/CurieO/conf/Franck_Laloe.pdf)
+[![Franck Laloë](/assets/data/conf-pressed/Franck_Laloe.avif)](/assets/CurieO/conf/Franck_Laloe.pdf)
 
 **Lieu**: Amphi Astier, campus Jussieu
 
@@ -10,7 +10,7 @@ Comprenons-nous vraiment la mécanique quantique ?
 ---
 
 ## 29/04/2025 - Conférence avec Martin Turbet
-[![Martin Turbet](/asset/data/conf-pressed/Martin_Turbet.avif)](/assets/CurieO/conf/Martin_Turbet.pdf)
+[![Martin Turbet](/assets/data/conf-pressed/Martin_Turbet.avif)](/assets/CurieO/conf/Martin_Turbet.pdf)
 
 **Lieu**: Amphi 24, campus Jussieu
 
