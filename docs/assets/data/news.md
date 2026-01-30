@@ -4,7 +4,7 @@
 ### 2026-01-01 Bonne année !
 # CurieOsity vous souhaite une très bonne année 2026 ! 🦦 
 
-### 2026-01-01 Boutique:q
+### 2026-01-01 Boutique
 # La boutique de CurieOsity sera bientôt accessible sur le site ;)
 
 ### 2026-02-04 Prochaine conférence
