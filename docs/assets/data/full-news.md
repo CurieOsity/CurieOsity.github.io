@@ -1,9 +1,20 @@
+## 04/02/2026 - Conférence avec Clément Ranc
+[![Clément Ranc](/assets/data/conf-pressed/Clement_Ranc.avif)](/assets/CurieO/conf/Clement_Ranc.pdf)
+
+**Lieu**: Amphi 24, campus Jussieu
+
+**Début**: 18h30
+
+Comment explorer d’autres mondes depuis la Terre ?
+
+---
+
 ## 15/10/2025 - Conférence avec Franck Laloë
 [![Franck Laloë](/assets/data/conf-pressed/Franck_Laloe.avif)](/assets/CurieO/conf/Franck_Laloe.pdf)
 
 **Lieu**: Amphi Astier, campus Jussieu
 
-**Début** : 18h30
+**Début**: 18h30
 
 Comprenons-nous vraiment la mécanique quantique ?
 

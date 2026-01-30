@@ -4,5 +4,9 @@
 ### 2026-01-01 Bonne année !
 # CurieOsity vous souhaite une très bonne année 2026 ! 🦦 
 
-### 2026-01-01 Boutique
+### 2026-01-01 Boutique:q
 # La boutique de CurieOsity sera bientôt accessible sur le site ;)
+
+## 2026-02-04 Prochaine conférence
+# Comment explorer d’autres mondes depuis la Terre ? avec Clément Ranc (IAP)
+### Consultez nos [![Actualités](https://curieosity.github.io/news)]
