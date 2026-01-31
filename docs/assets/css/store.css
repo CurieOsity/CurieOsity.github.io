@@ -1,7 +1,9 @@
 .store-section {
-  max-width: var(--max-width);
-  padding: 0 5rem;
-  margin: 0 auto;
+  position: relative;
+  padding: 4rem 5%;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+
 }
 
 .product-category {
