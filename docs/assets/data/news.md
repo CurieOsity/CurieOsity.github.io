@@ -4,5 +4,5 @@
 ### 2026-01-01 Bonne année !
 # CurieOsity vous souhaite une très bonne année 2026 ! 🦦 
 
-### 2026-02-04 Prochaine conférence
-# Comment explorer d’autres mondes depuis la Terre ? avec Clément Ranc (IAP) - Consultez nos <a href="/news">Actualités</a>
+### 2026-02-18 Prochain café avec Matthieu Tissier
+# la chromodynamique quantique, propriétés de basse énergie
